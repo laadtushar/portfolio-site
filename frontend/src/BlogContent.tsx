@@ -10,11 +10,11 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { ImageFigure, Post } from '../generatedSanitySchemaTypes';
 import { getSanityImageUrlFor } from './sanity/sanityImageBuilder';
 
-const P = ({ children, className = '' }: { children: ReactNode; className?: string; }) => (<p className={`my-4 ${className}`}>{children}</p>);
+const P = ({ children, className = '' }: { children: ReactNode; className?: string; }) => (<p className={`my-4 text-black ${className}`}>{children}</p>);
 
 const H2 = ({ children }: { children: ReactNode; }) => (
   <h2
-    className="mt-16 font-mono text-2xl"
+    className="mt-16 font-mono text-2xl font-bold text-black"
   >
     {children}
   </h2>
@@ -25,7 +25,7 @@ const LinkMark:PortableTextMarkComponent = ({ value, children }) => {
   return (
     <a
       href={value?.href}
-      className="underline decoration-1 underline-offset-4 hover:text-projectColor"
+      className="underline decoration-2 underline-offset-4 text-blue font-bold hover:text-violet"
       target={target}
       rel={target === '_blank' ? 'noindex nofollow' : ''}
     >
@@ -52,16 +52,16 @@ const H2Block: PortableTextBlockComponent = ({ children }) => (
     {children}
   </H2>
 );
-const H3Block: PortableTextBlockComponent = ({ children }) => (<h3 className="my-4 font-mono">{children}</h3>);
+const H3Block: PortableTextBlockComponent = ({ children }) => (<h3 className="my-4 font-mono font-bold text-black text-xl">{children}</h3>);
 
 export const BlogHeader = ({ post }: { post: Post; }) => (
   <>
-    <h1 className="font-mono text-[clamp(1.5rem,6vw,3rem)] my-12 leading-[1.2] ">
+    <h1 className="font-mono text-[clamp(1.5rem,6vw,3rem)] my-12 leading-[1.2] font-bold text-black">
       {post?.title}
     </h1>
     {post?.publishedAt && (
-      <div className="text-sm opacity-70 mb-8">
-        {new Date(post.publishedAt).toLocaleDateString('en-US', {
+      <div className="text-sm opacity-70 mb-8 text-black">
+        📅 {new Date(post.publishedAt).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
@@ -69,7 +69,7 @@ export const BlogHeader = ({ post }: { post: Post; }) => (
       </div>
     )}
     {post?.mainImage && (
-      <div className="my-8">
+      <div className="my-8 border-[2px] border-black">
         <img
           src={
             getSanityImageUrlFor(post.mainImage as SanityImageSource)

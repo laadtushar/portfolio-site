@@ -58,19 +58,18 @@ function BlogCard({ post, onClick }: BlogCardProps) {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="cursor-pointer p-6 rounded-lg border-2 transition-all duration-300"
+      className="cursor-pointer p-6 border-[3px] border-black transition-all duration-300 font-mono"
       style={{
-        borderColor: isHovered ? colors.violet : `${colors.white}40`,
-        backgroundColor: isHovered ? `${colors.violet}10` : 'transparent',
-        boxShadow: isHovered ? `0 0 20px ${colors.violet}40` : 'none',
-        transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
+        backgroundColor: isHovered ? colors.yellow : colors.white,
+        boxShadow: isHovered ? '-0.3em -0.3em black' : '-0.15em -0.15em black',
+        transform: isHovered ? 'translate(0.1em, 0.1em)' : 'translate(0, 0)',
       }}
     >
       {/* Title */}
       <h2 
         className="font-mono font-bold text-xl mb-3 line-clamp-2"
         style={{ 
-          color: isHovered ? colors.violet : colors.white,
+          color: colors.black,
         }}
       >
         {post?.title || 'Untitled'}
@@ -79,23 +78,23 @@ function BlogCard({ post, onClick }: BlogCardProps) {
       {/* Date */}
       <p 
         className="font-mono text-xs mb-3"
-        style={{ color: colors.cyan }}
+        style={{ color: colors.black, opacity: 0.7 }}
       >
-        {publishedDate}
+        📅 {publishedDate}
       </p>
 
       {/* Excerpt */}
       <p 
         className="text-sm mb-4 line-clamp-3"
-        style={{ color: `${colors.white}CC` }}
+        style={{ color: colors.black, opacity: 0.8 }}
       >
         {getExcerpt()}
       </p>
 
       {/* Read More Link */}
       <div 
-        className="font-mono text-sm font-bold"
-        style={{ color: isHovered ? colors.violet : colors.cyan }}
+        className="font-mono text-sm font-bold mb-3"
+        style={{ color: isHovered ? colors.violet : colors.black }}
       >
         READ MORE →
       </div>
@@ -107,10 +106,10 @@ function BlogCard({ post, onClick }: BlogCardProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="mt-3 inline-flex items-center gap-2 text-xs font-mono border px-3 py-1 rounded transition-all hover:scale-105"
+          className="inline-flex items-center gap-2 text-xs font-mono border-[2px] border-black px-3 py-1 transition-all hover:scale-105"
           style={{
-            borderColor: colors.cyan,
-            color: colors.cyan,
+            backgroundColor: colors.blue,
+            color: colors.white,
           }}
         >
           <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
@@ -154,21 +153,21 @@ export function BlogGrid({ active, posts, ...groupProps }:
         }}
       >
         <div 
-          className="bg-black/95 border-2 border-cyan p-8 rounded-lg backdrop-blur-sm"
+          className="border-[3px] border-black p-8 font-mono"
           style={{
-            borderColor: colors.cyan,
-            boxShadow: `0 0 20px ${colors.cyan}40`,
+            backgroundColor: colors.cyan,
+            boxShadow: '-0.3em -0.3em black',
           }}
         >
           {/* Header */}
           <div className="mb-8 text-center">
             <h1 
               className="font-mono text-4xl font-bold mb-2"
-              style={{ color: colors.yellow }}
+              style={{ color: colors.black }}
             >
-              BLOG
+              📝 BLOG.exe
             </h1>
-            <p className="text-white/70 font-mono text-sm">
+            <p className="text-black/80 font-mono text-sm">
               Thoughts on data engineering, innovation & tech
             </p>
           </div>
@@ -202,9 +201,9 @@ export function BlogGrid({ active, posts, ...groupProps }:
                 // This will be handled by the Notebook component
                 // Just provide a visual back button
               }}
-              className="font-mono text-sm px-6 py-2 border-2 rounded-lg transition-all hover:scale-105 active:scale-95"
+              className="font-mono text-sm px-6 py-2 border-[2px] border-black transition-all hover:scale-105 active:scale-95"
               style={{
-                borderColor: colors.cyan,
+                backgroundColor: colors.black,
                 color: colors.cyan,
               }}
             >
