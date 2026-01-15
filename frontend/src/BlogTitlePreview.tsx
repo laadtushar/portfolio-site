@@ -22,7 +22,7 @@ export const BlogTitlePreview = ({ post, hovering, open }:{post:Post, hovering:b
         }}
       >
         <div
-          className="font-mono font-bold text-[0.5rem] whitespace-nowrap text-center px-2 py-1"
+          className="font-mono font-bold text-[1.2rem] whitespace-nowrap text-center px-3 py-2"
           style={{
             color: 'var(--textColor)',
             backgroundColor: colors.black,

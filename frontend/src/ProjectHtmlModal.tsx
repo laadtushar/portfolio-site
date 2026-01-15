@@ -83,7 +83,7 @@ export const ScollingContentContainer = ({ children }: { children: ReactNode; })
             ` : `
               w-[94%]
             `}
-            pb-[4rem]
+            pb-[8rem]
           `}
         >
           {children}
