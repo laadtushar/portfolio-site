@@ -1,0 +1,292 @@
+{
+  "projects": [
+    {
+      "_type": "project",
+      "title": "NLP and LLM Driven Job Matching Platform",
+      "shortTitle": "Job Matching AI",
+      "slug": {
+        "_type": "slug",
+        "current": "nlp-llm-job-matching"
+      },
+      "subTitle": "AI-powered semantic job matching platform",
+      "client": "Newcastle University",
+      "links": [],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "An NLP and LLM based platform that analyzes job descriptions and extracts relevant information, enhancing the job matching process through semantic understanding of job descriptions and candidate profiles."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h3",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Key Features"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• Scraping and preprocessing job descriptions\n• Generating comprehensive dictionary of job intents, technologies, and teams\n• Labeling job descriptions using NLP techniques\n• Evaluating and comparing NLP and LLM model performance\n• Developing ETL pipeline for data processing\n• Implementing prototype API for job matching"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#00d4ff"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "End-to-End Encrypted Chat Application",
+      "shortTitle": "Decipher Chat",
+      "slug": {
+        "_type": "slug",
+        "current": "encrypted-chat-app"
+      },
+      "subTitle": "Secure messaging with asymmetric encryption",
+      "client": "Newcastle University",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Live Demo",
+          "url": "https://decipher.website"
+        },
+        {
+          "_type": "link",
+          "text": "GitHub",
+          "url": "https://github.com/laadtushar/end-to-end-encrypted-chat-app"
+        },
+        {
+          "_type": "link",
+          "text": "Demo Video",
+          "url": "https://www.youtube.com/watch?v=gqsp-OPTtIk"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A secure chat application featuring end-to-end encryption built with React.js and Firebase, demonstrating advanced security concepts including asymmetric encryption for scalable web applications."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h3",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Technical Highlights"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• Implemented end-to-end encryption with public/private key architecture\n• Stored public keys on servers, private keys on local devices\n• Built real-time messaging with Firebase\n• Published research paper on chat security"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#8b5cf6"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "Real-Time Collaborative Whiteboard",
+      "shortTitle": "Collab Whiteboard",
+      "slug": {
+        "_type": "slug",
+        "current": "collaborative-whiteboard"
+      },
+      "subTitle": "Multi-user real-time drawing application",
+      "client": "Newcastle University",
+      "links": [
+        {
+          "_type": "link",
+          "text": "GitHub",
+          "url": "https://github.com/laadtushar/collaborative-whiteboard"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A real-time collaborative whiteboard application allowing multiple users to draw, write, and collaborate simultaneously using WebSockets."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• Real-time synchronization across multiple users\n• Built with Socket.IO for bidirectional communication\n• HTML Canvas for drawing functionality\n• Collaborative features for team work"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#10b981"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "XpenseLab",
+      "shortTitle": "XpenseLab",
+      "slug": {
+        "_type": "slug",
+        "current": "xpenselab"
+      },
+      "subTitle": "Personal budgeting and expense tracking",
+      "client": "Personal Project",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Visit Site",
+          "url": "https://XpenseLab.com"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A personal budgeting tool built with Firebase and Google Data Studio for expense tracking and financial visualization."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• Personal budgeting and expense tracking\n• Firebase backend with Firestore database\n• Data visualization with Google Data Studio\n• Real-time expense monitoring"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#f59e0b"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "Parivartan NGO Website",
+      "shortTitle": "Parivartan",
+      "slug": {
+        "_type": "slug",
+        "current": "parivartan-ngo"
+      },
+      "subTitle": "Non-profit organization website",
+      "client": "Parivartan NGO",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Visit Site",
+          "url": "https://parivartan.org.in"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Built a WordPress-based website for Parivartan NGO to showcase their work and facilitate online donations."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• WordPress website for social cause\n• Online donation integration\n• Content management for NGO activities\n• Responsive design for accessibility"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#ef4444"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "Vail Perfumes E-commerce",
+      "shortTitle": "Vail Perfumes",
+      "slug": {
+        "_type": "slug",
+        "current": "vail-perfumes"
+      },
+      "subTitle": "E-commerce store for perfumes",
+      "client": "Vail Perfumes",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Visit Store",
+          "url": "https://vailperfumes.com"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Developed an e-commerce website for Vail Perfumes with online shopping functionality using WordPress and WooCommerce."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• Full e-commerce functionality with WooCommerce\n• Product catalog and inventory management\n• Payment gateway integration\n• Order management system"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#ec4899"
+      }
+    }
+  ]
+}

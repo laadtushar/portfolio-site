@@ -12,7 +12,8 @@
     "build": "sanity build",
     "build:types": "npx sanity-codegen",
     "deploy": "sanity deploy",
-    "backup": "sanity dataset export production \"../sanity-backups/backup-$(date +\"%Y-%m-%d-%H-%M\").tar.gz\""
+    "backup": "sanity dataset export production \"../sanity-backups/backup-$(date +\"%Y-%m-%d-%H-%M\").tar.gz\"",
+    "seed": "node import-projects.js"
   },
   "keywords": [
     "sanity"
