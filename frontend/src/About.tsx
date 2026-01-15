@@ -294,7 +294,7 @@ export const Slides = ({
               bgColor="yellow"
               disabled={slide !== 'education'}
             >
-              volunteer work?
+              additional experience?
             </TerminalWindowButton>
           </div>
         </div>
@@ -313,9 +313,9 @@ export const Slides = ({
               w-full max-w-[50em] max-h-[90%] overflow-y-auto
               ${breakpoint ? '' : 'max-w-[90%]'}
             `}
-            title="VOLUNTEER.log"
+            title="ADDITIONAL_EXPERIENCE.log"
             delay={500}
-            topColor="yellow"
+            topColor="orange"
             color="white"
           />
           <div className="mt-[2em] pointer-events-auto">

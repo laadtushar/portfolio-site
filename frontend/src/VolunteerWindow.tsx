@@ -92,25 +92,25 @@ export const VolunteerWindow = ({
 }: Omit<TerminalWindowProps, 'children'>) => (
   <TerminalWindow {...terminalWindowProps}>
     <div className="p-[1em] text-[0.9em]">
-      <div className="mb-[1em] text-yellow font-bold text-[1.1em]">
+      <div className="mb-[1em] text-orange font-bold text-[1.1em]">
         <Typewriter delay={0} timePerChar={2}>
-          VOLUNTEER & ADDITIONAL EXPERIENCE
+          ADDITIONAL EXPERIENCE
         </Typewriter>
       </div>
       <div className="space-y-[1.5em]">
         {volunteerExperiences.map((exp) => (
           <div
             key={`${exp.organization}-${exp.role}`}
-            className="relative pl-[1.5em] border-l-[2px] border-yellow"
+            className="relative pl-[1.5em] border-l-[2px] border-orange"
           >
             {/* Timeline dot */}
-            <div className="absolute left-[-0.45em] top-[0.2em] w-[0.7em] h-[0.7em] bg-yellow rounded-full border-[2px] border-black" />
+            <div className="absolute left-[-0.45em] top-[0.2em] w-[0.7em] h-[0.7em] bg-orange rounded-full border-[2px] border-black" />
 
             {/* Role & Organization */}
             <div className="font-bold text-[1em] leading-tight">
               {exp.role}
             </div>
-            <div className="text-yellow text-[0.9em] mt-[0.2em]">
+            <div className="text-orange text-[0.9em] mt-[0.2em]">
               {exp.organization}
             </div>
             <div className="text-[0.8em] opacity-70 mt-[0.1em]">
@@ -121,7 +121,7 @@ export const VolunteerWindow = ({
             <ul className="mt-[0.5em] space-y-[0.2em] text-[0.85em]">
               {exp.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-[0.4em]">
-                  <span className="text-yellow text-[0.8em]">•</span>
+                  <span className="text-orange text-[0.8em]">•</span>
                   <span>{highlight}</span>
                 </li>
               ))}
