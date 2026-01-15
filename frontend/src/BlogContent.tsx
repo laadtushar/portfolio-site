@@ -52,7 +52,7 @@ const H2Block: PortableTextBlockComponent = ({ children }) => (
     {children}
   </H2>
 );
-const H3Block: PortableTextBlockComponent = ({ children }) => (<h3 className="my-4 font-mono font-bold text-black text-xl">{children}</h3>);
+const H3Block: PortableTextBlockComponent = ({ children }) => (<h3 className="my-3 sm:my-4 mt-6 sm:mt-8 font-mono font-bold text-black text-base sm:text-lg md:text-xl">{children}</h3>);
 
 export const BlogHeader = ({ post }: { post: Post; }) => (
   <>
@@ -84,7 +84,7 @@ export const BlogHeader = ({ post }: { post: Post; }) => (
 );
 
 export const BlogBody = ({ post }: { post: Post; }) => useMemo(() => (
-  <div className="my-8 tracking-wide leading-relaxed">
+  <div className="my-4 sm:my-6 md:my-8 tracking-wide leading-relaxed text-sm sm:text-base">
     <PortableText
       value={((post?.body ?? {}) as TypedObject)}
       components={{
@@ -98,6 +98,14 @@ export const BlogBody = ({ post }: { post: Post; }) => useMemo(() => (
           h2: H2Block,
           h3: H3Block,
           normal: PBlock,
+        },
+        list: {
+          bullet: ({ children }: { children: ReactNode }) => <ul className="list-disc list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">{children}</ul>,
+          number: ({ children }: { children: ReactNode }) => <ol className="list-decimal list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">{children}</ol>,
+        },
+        listItem: {
+          bullet: ({ children }: { children: ReactNode }) => <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">{children}</li>,
+          number: ({ children }: { children: ReactNode }) => <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">{children}</li>,
         },
       }}
     />
