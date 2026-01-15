@@ -23,35 +23,37 @@ export const TextWindow = ({
     return startDelay + charCountSoFar * TIME_PER_CHAR + pauseBetween * (i + 1);
   })];
   return (
-    <TerminalWindow {...terminalWindowProps}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      {icon && <img src={icon} alt="fake computer icon" className="w-[20%] h-auto m-auto mb-[1em] pointer-events-none" />}
-      {texts.map((text, i, array) => (
-        <div
-          style={{ marginTop: i !== 0 ? textMargin : 0 }}
-          key={text}
-        >
-          <Typewriter
-            delay={delays[i]}
-            hideCaratAtEnd={i !== array.length - 1}
+    <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
+      <div className="overflow-y-auto h-full" style={{ maxHeight: 'calc(85vh - 3em)' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {icon && <img src={icon} alt="fake computer icon" className="w-[20%] h-auto m-auto mb-[1em] pointer-events-none" />}
+        {texts.map((text, i, array) => (
+          <div
+            style={{ marginTop: i !== 0 ? textMargin : 0 }}
+            key={text}
           >
-            {text}
-          </Typewriter>
-        </div>
-      ))}
-      {!noButton && (
-        <div className="grid place-items-center mt-[2em]">
-          <TerminalWindowButton
-            onClick={onClick}
-            delay={delays[delays.length - 1]}
-            color="black"
-            bgColor={buttonColor}
-            disabled={disabled}
-          >
-            {buttonText}
-          </TerminalWindowButton>
-        </div>
-      )}
+            <Typewriter
+              delay={delays[i]}
+              hideCaratAtEnd={i !== array.length - 1}
+            >
+              {text}
+            </Typewriter>
+          </div>
+        ))}
+        {!noButton && (
+          <div className="grid place-items-center mt-[2em] pb-[1em]">
+            <TerminalWindowButton
+              onClick={onClick}
+              delay={delays[delays.length - 1]}
+              color="black"
+              bgColor={buttonColor}
+              disabled={disabled}
+            >
+              {buttonText}
+            </TerminalWindowButton>
+          </div>
+        )}
+      </div>
     </TerminalWindow>
   );
 };

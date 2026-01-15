@@ -149,8 +149,9 @@ export function BlogGrid({ active, posts, ...groupProps }:
         transform
         distanceFactor={3}
         style={{
-          width: '90vw',
+          width: '95vw',
           maxWidth: '1200px',
+          maxHeight: '85vh',
           pointerEvents: 'auto',
         }}
       >

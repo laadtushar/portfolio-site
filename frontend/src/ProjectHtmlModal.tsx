@@ -58,16 +58,16 @@ export const ScollingContentContainer = ({ children }: { children: ReactNode; })
           top-0 left-0
           w-full h-[100vh] -translate-y-1/2
 
-          px-4 pr-8
+          px-2 sm:px-4 pr-4 sm:pr-8
         ` : `
-          top-[3vh] w-[98vw] h-[60vh] -translate-x-1/2
-          px-4
+          top-[3vh] w-[98vw] h-[70vh] sm:h-[65vh] md:h-[60vh] -translate-x-1/2
+          px-2 sm:px-4
         `}
       `}
     >
       <div
         className={`
-          w-full h-[calc(100%-3rem)] overflow-y-auto no-scrollbar
+          w-full overflow-y-auto no-scrollbar
           ${breakpoints.projectOpen ? 'h-[calc(100%-3rem)]' : 'h-[calc(100%-1.5rem)]'}
         `}
         ref={scrollRef}
@@ -83,7 +83,7 @@ export const ScollingContentContainer = ({ children }: { children: ReactNode; })
             ` : `
               w-[94%]
             `}
-            pb-[8rem]
+            pb-[10rem] sm:pb-[8rem]
           `}
         >
           {children}

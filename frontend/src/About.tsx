@@ -44,14 +44,14 @@ export const Slides = ({
     const text2Delay = text1Delay + 22 * TIME_PER_CHAR + 100;
     const buttonDelay = text2Delay + 23 * TIME_PER_CHAR + 300;
     return (
-      <div className="p-[1em] font-mono text-white text-[2em]">
+      <div className="p-[0.5em] sm:p-[1em] font-mono text-white text-[1.2em] sm:text-[1.5em] md:text-[2em] max-h-[85vh] overflow-y-auto">
         <Typewriter delay={text1Delay} hideCaratAtEnd>
           {aboutContent.intro[0]}
         </Typewriter>
         <Typewriter delay={text2Delay}>
           {aboutContent.intro[1]}
         </Typewriter>
-        <div className="grid place-items-center mt-[2em]">
+        <div className="grid place-items-center mt-[1.5em] sm:mt-[2em]">
           <TerminalButton
             onClick={() => {
               setScene('about');
@@ -59,7 +59,7 @@ export const Slides = ({
               setSlide('mission');
             }}
             delay={buttonDelay}
-            className="text-[max(1.5em,16px)]"
+            className="text-[max(1em,14px)] sm:text-[max(1.5em,16px)]"
             tabIndex={scene === 'menu' ? 0 : -1}
           >
             ABOUT_TUSHAR
