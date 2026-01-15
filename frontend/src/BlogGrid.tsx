@@ -132,7 +132,7 @@ export function BlogGrid({ active, posts, ...groupProps }:
   
   // Smaller distanceFactor on mobile = larger content
   const isMobile = width < 640;
-  const distanceFactor = isMobile ? 1.8 : 3;
+  const distanceFactor = isMobile ? 1.2 : 3;
 
   if (!active) return null;
 

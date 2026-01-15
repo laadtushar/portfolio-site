@@ -17,7 +17,7 @@ export function BlogDetailView({ post, onClose }: BlogDetailViewProps) {
   
   // Smaller distanceFactor on mobile = larger content
   const isMobile = width < 640;
-  const distanceFactor = isMobile ? 1.8 : 3;
+  const distanceFactor = isMobile ? 1.2 : 3;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,7 +94,7 @@ export function BlogDetailView({ post, onClose }: BlogDetailViewProps) {
             color: colors.black,
           }}
         >
-          <div className="max-w-2xl pb-8">
+          <div className="max-w-2xl pb-24 sm:pb-32">
             <BlogHeader post={post} />
             
             {/* LinkedIn Link */}
