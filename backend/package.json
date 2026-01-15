@@ -7,12 +7,12 @@
   "author": "Bryant Smith <bryant.robert.smith@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
-    "dev": "sanity start",
-    "build": "sanity build",
+    "start": "npx sanity start",
+    "dev": "npx sanity start",
+    "build": "npx sanity build",
     "build:types": "npx sanity-codegen",
-    "deploy": "sanity deploy",
-    "backup": "sanity dataset export production \"../sanity-backups/backup-$(date +\"%Y-%m-%d-%H-%M\").tar.gz\""
+    "deploy": "npx sanity deploy",
+    "backup": "npx sanity dataset export production \"../sanity-backups/backup-$(date +\"%Y-%m-%d-%H-%M\").tar.gz\""
   },
   "keywords": [
     "sanity"
