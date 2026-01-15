@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Html } from '@react-three/drei';
+import { useWindowSize } from 'usehooks-ts';
 import { Post } from '../generatedSanitySchemaTypes';
 import { BlogHeader, BlogBody } from './BlogContent';
 import colors from './colors';
@@ -12,6 +13,11 @@ interface BlogDetailViewProps {
 export function BlogDetailView({ post, onClose }: BlogDetailViewProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
+  const { width } = useWindowSize();
+  
+  // Smaller distanceFactor on mobile = larger content
+  const isMobile = width < 640;
+  const distanceFactor = isMobile ? 1.8 : 3;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +46,7 @@ export function BlogDetailView({ post, onClose }: BlogDetailViewProps) {
       position={[0, 0, 2]}
       center
       transform
-      distanceFactor={3}
+      distanceFactor={distanceFactor}
       style={{
         width: '95vw',
         maxWidth: '900px',

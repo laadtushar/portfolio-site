@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Html } from '@react-three/drei';
 import { GroupProps } from '@react-three/fiber';
+import { useWindowSize } from 'usehooks-ts';
 import { Post } from '../generatedSanitySchemaTypes';
 import { BlogDetailView } from './BlogDetailView';
 import { useSceneController } from './SceneController';
@@ -127,6 +128,11 @@ export function BlogGrid({ active, posts, ...groupProps }:
   { active:boolean, posts: Post[] | null; } & GroupProps) {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const { setScene } = useSceneController();
+  const { width } = useWindowSize();
+  
+  // Smaller distanceFactor on mobile = larger content
+  const isMobile = width < 640;
+  const distanceFactor = isMobile ? 1.8 : 3;
 
   if (!active) return null;
 
@@ -147,7 +153,7 @@ export function BlogGrid({ active, posts, ...groupProps }:
         position={[0, 0, 2]}
         center
         transform
-        distanceFactor={3}
+        distanceFactor={distanceFactor}
         style={{
           width: '95vw',
           maxWidth: '1200px',
