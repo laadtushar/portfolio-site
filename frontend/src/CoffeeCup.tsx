@@ -7,6 +7,7 @@ import {
   // easings,
   useSpring,
 } from '@react-spring/three';
+import { useRouter } from 'next/router';
 // import { useControls } from 'leva';
 // import { useControls } from 'leva';
 import { Scribble } from './Scribble';
@@ -26,6 +27,7 @@ import { useBreakpoints } from './useBreakpoints';
 
 export function CoffeeCup() {
   const breakpoints = useBreakpoints();
+  const router = useRouter();
 
   let time = 450;
   const projectButtonVisible1 = useTrueAfterDelay(time += 1000);
@@ -141,7 +143,10 @@ export function CoffeeCup() {
         onFocus={() => setHovering(true)}
         onBlur={() => setHovering(false)}
         cursor="spill"
-        onClick={() => sceneController.setScene('projects')}
+        onClick={() => {
+          sceneController.setScene('projects');
+          router.push('/projects');
+        }}
       />
       )}
       {coffeeCupButtonEnabled && scene === 'projects' && (
@@ -154,7 +159,10 @@ export function CoffeeCup() {
         onFocus={() => setHovering(true)}
         onBlur={() => setHovering(false)}
         cursor="unspill"
-        onClick={() => sceneController.setScene('menu')}
+        onClick={() => {
+          sceneController.setScene('menu');
+          router.push('/');
+        }}
       />
       )}
     </animated.group>

@@ -27,6 +27,8 @@ export type CustomCursorState = null
  | 'spill'
  | 'open-project'
  | 'close-project'
+ | 'open-blog'
+ | 'close-blog'
  | 'unspill'
  | 'paint'
  | 'external'
@@ -102,6 +104,18 @@ const CustomCursorRenderer = ({ cursor }:{cursor:CustomCursorState}) => {
           </>
         )}
         {cursor === 'close-project' && (
+          <>
+            go back
+          </>
+        )}
+        {cursor === 'open-blog' && (
+          <>
+            read
+            <br />
+            blog
+          </>
+        )}
+        {cursor === 'close-blog' && (
           <>
             go back
           </>

@@ -3,6 +3,7 @@ import { animated, config } from '@react-spring/three';
 import { Color } from 'three';
 import { Text } from '@react-three/drei';
 import { GroupProps } from '@react-three/fiber';
+import { useRouter } from 'next/router';
 import bookFillPoints from './lines/bookFill';
 import bookLinesPoints from './lines/bookLines';
 // import bookHighlightPoints from './lines/bookHighlight';
@@ -10,6 +11,8 @@ import { Scribble } from './Scribble';
 import { CoordArray } from './CoordArray';
 import { fontUrls } from './typography';
 import { useTrueAfterDelay } from './useTrueAfterDelay';
+import { ThreeButton } from './ThreeButton';
+import { useSceneController } from './SceneController';
 import colors from './colors';
 import { useBreakpoints } from './useBreakpoints';
 
@@ -17,6 +20,11 @@ export function Notebook({ ...groupProps }:GroupProps) {
   let time = 450;
   const linesVisible = useTrueAfterDelay(time += 1000);
   const fillVisible = useTrueAfterDelay(time += 500);
+  const notebookButtonEnabled = useTrueAfterDelay(time += 1000);
+
+  const router = useRouter();
+  const sceneController = useSceneController();
+  const { scene } = sceneController;
 
   const breakpoints = useBreakpoints();
 
@@ -60,8 +68,36 @@ export function Notebook({ ...groupProps }:GroupProps) {
         font={fontUrls.bryantBold}
         visible={linesVisible}
       >
-        {'Blog\ncoming\nsoon'.toUpperCase()}
+        {scene === 'blog' || scene === 'blog-open' ? 'Back'.toUpperCase() : 'Blog'.toUpperCase()}
       </Text>
+      {notebookButtonEnabled && scene === 'menu' && (
+        <ThreeButton
+          position={[0, 0, 0]}
+          width={2}
+          height={2}
+          description={'A notebook with the word "Blog" on it.'}
+          activationMsg="Notebook opens, revealing blog posts floating in a 3D carousel."
+          cursor="open-blog"
+          onClick={() => {
+            sceneController.setScene('blog');
+            router.push('/blog');
+          }}
+        />
+      )}
+      {notebookButtonEnabled && (scene === 'blog' || scene === 'blog-open') && (
+        <ThreeButton
+          position={[0, 0, 0]}
+          width={1.5}
+          height={1.5}
+          description={'A notebook with the word "Back" on it'}
+          activationMsg="Notebook closes, returning us to the desk / main menu."
+          cursor="close-blog"
+          onClick={() => {
+            sceneController.setScene('menu');
+            router.push('/');
+          }}
+        />
+      )}
     </animated.group>
   );
 }
