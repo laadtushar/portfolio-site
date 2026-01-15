@@ -67,7 +67,7 @@ export const ScollingContentContainer = ({ children }: { children: ReactNode; })
     >
       <div
         className={`
-          w-full h-[calc(100%-3rem)] overflow-y-scroll no-scrollbar
+          w-full h-[calc(100%-3rem)] overflow-y-auto no-scrollbar
           ${breakpoints.projectOpen ? 'h-[calc(100%-3rem)]' : 'h-[calc(100%-1.5rem)]'}
         `}
         ref={scrollRef}
@@ -83,6 +83,7 @@ export const ScollingContentContainer = ({ children }: { children: ReactNode; })
             ` : `
               w-[94%]
             `}
+            pb-[4rem]
           `}
         >
           {children}

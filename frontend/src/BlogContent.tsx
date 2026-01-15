@@ -84,7 +84,7 @@ export const BlogHeader = ({ post }: { post: Post; }) => (
 );
 
 export const BlogBody = ({ post }: { post: Post; }) => useMemo(() => (
-  <div className="my-8 tracking-wide">
+  <div className="my-8 tracking-wide leading-relaxed">
     <PortableText
       value={((post?.body ?? {}) as TypedObject)}
       components={{
