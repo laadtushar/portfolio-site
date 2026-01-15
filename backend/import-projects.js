@@ -1,6 +1,26 @@
-const sanityClient = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
+
+// Load environment variables from .env files
+// Try multiple locations: backend/.env.local, backend/.env, root/.env.local, root/.env
+const rootDir = path.join(__dirname, '..');
+const envPaths = [
+  path.join(__dirname, '.env.local'),
+  path.join(__dirname, '.env'),
+  path.join(rootDir, '.env.local'),
+  path.join(rootDir, '.env'),
+];
+
+for (const envPath of envPaths) {
+  if (fs.existsSync(envPath)) {
+    console.log(`📄 Loading ${path.relative(process.cwd(), envPath)}...`);
+    require('dotenv').config({ path: envPath });
+  }
+}
+// Also try default .env location
+require('dotenv').config();
+
+const sanityClient = require('@sanity/client');
 
 // Read sanity.json for project config
 let sanityConfig = {};
@@ -11,20 +31,31 @@ try {
 }
 
 // Initialize Sanity client
+// Try all possible environment variable names
 const projectId = process.env.SANITY_STUDIO_API_PROJECT_ID 
   || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID 
   || process.env.SANITY_PROJECT_ID
+  || process.env.SANITY_STUDIO_PROJECT_ID
   || sanityConfig?.api?.projectId;
 
 const dataset = process.env.SANITY_STUDIO_API_DATASET 
   || process.env.NEXT_PUBLIC_SANITY_DATASET 
   || process.env.SANITY_DATASET
+  || process.env.SANITY_STUDIO_DATASET
   || sanityConfig?.api?.dataset 
   || 'production';
 
 const token = process.env.SANITY_AUTH_TOKEN 
   || process.env.SANITY_TOKEN
-  || process.env.SANITY_API_TOKEN;
+  || process.env.SANITY_API_TOKEN
+  || process.env.SANITY_STUDIO_API_TOKEN;
+
+// Debug: Show what we found (without exposing full token)
+console.log('\n🔍 Environment check:');
+console.log(`   Project ID: ${projectId ? '✅ Found' : '❌ Missing'}`);
+console.log(`   Dataset: ${dataset ? `✅ ${dataset}` : '❌ Missing'}`);
+console.log(`   Token: ${token ? '✅ Found' : '❌ Missing'}`);
+console.log('');
 
 if (!projectId) {
   console.error('❌ Error: Sanity projectId is required!');
@@ -37,9 +68,14 @@ if (!projectId) {
 }
 
 if (!token) {
-  console.warn('⚠️  Warning: No auth token provided. You may not be able to write data.');
-  console.warn('   Set SANITY_AUTH_TOKEN, SANITY_TOKEN, or SANITY_API_TOKEN');
-  console.warn('   Get your token from: https://sanity.io/manage');
+  console.error('❌ Error: Sanity auth token is required!');
+  console.error('   Set one of these environment variables:');
+  console.error('   - SANITY_AUTH_TOKEN');
+  console.error('   - SANITY_TOKEN');
+  console.error('   - SANITY_API_TOKEN');
+  console.error('   Get your token from: https://sanity.io/manage');
+  console.error('   Make sure the token has Editor permissions for project:', projectId);
+  process.exit(1);
 }
 
 const client = sanityClient({
@@ -50,7 +86,8 @@ const client = sanityClient({
   apiVersion: '2023-05-03',
 });
 
-console.log(`📋 Using Sanity project: ${projectId}, dataset: ${dataset}\n`);
+console.log(`📋 Using Sanity project: ${projectId}, dataset: ${dataset}`);
+console.log(`🔑 Token: ${token ? `${token.substring(0, 10)}...` : 'NOT SET'}\n`);
 
 async function importData() {
   try {
