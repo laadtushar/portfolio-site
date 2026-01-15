@@ -206,6 +206,97 @@ export interface Project extends SanityDocument {
 }
 
 /**
+ * Work Experience
+ *
+ *
+ */
+export interface Experience extends SanityDocument {
+  _type: "experience";
+
+  /**
+   * Company Name — `string`
+   *
+   *
+   */
+  company?: string;
+
+  /**
+   * Role/Title — `string`
+   *
+   *
+   */
+  role?: string;
+
+  /**
+   * Start Date — `date`
+   *
+   *
+   */
+  startDate?: string;
+
+  /**
+   * End Date — `date`
+   *
+   * Leave empty if currently working here
+   */
+  endDate?: string;
+
+  /**
+   * Current Position — `boolean`
+   *
+   * Check if this is your current position
+   */
+  current?: boolean;
+
+  /**
+   * Location — `string`
+   *
+   *
+   */
+  location?: string;
+
+  /**
+   * Description — `array`
+   *
+   * Key responsibilities and achievements
+   */
+  description?: Array<SanityKeyed<SanityBlock>>;
+
+  /**
+   * Technologies Used — `array`
+   *
+   * List of technologies, tools, and frameworks used
+   */
+  technologies?: Array<SanityKeyed<string>>;
+
+  /**
+   * Company Website — `url`
+   *
+   *
+   */
+  companyUrl?: string;
+
+  /**
+   * Company Logo — `image`
+   *
+   *
+   */
+  logo?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Display Order — `number`
+   *
+   * Lower numbers appear first (0 = most recent)
+   */
+  order?: number;
+}
+
+/**
  * Author
  *
  *
@@ -400,7 +491,7 @@ export type Vimeo = {
   id?: string;
 };
 
-export type Documents = Post | Project | Author | Category;
+export type Documents = Post | Project | Experience | Author | Category;
 
 /**
  * This interface is a stub. It was referenced in your sanity schema but
