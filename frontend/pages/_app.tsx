@@ -23,16 +23,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   console.log('focused on', e.target);
   // });
 
-  const title = 'Bryant Smith, Creative Dev';
-  const description = 'I help awesome designers (like you) build their wildest dreams.';
-  const url = 'https://bryantcodes.art';
+  const title = 'Tushar Laad | Data Engineer & Software Architect';
+  const description = 'Founding Software Engineer specializing in Data Engineering, ETL Development, API Development, and Cloud Computing. Passionate about building innovative data solutions.';
+  const url = 'https://tusharlaad.com';
 
   return (
     <>
       <DefaultSeo
         title={title}
         description={description}
-        canonical="https://bryantcodes.art"
+        canonical="https://tusharlaad.com"
         openGraph={{
           url,
           title,
@@ -40,17 +40,17 @@ function MyApp({ Component, pageProps }: AppProps) {
           type: 'website',
           images: [
             {
-              url: 'https://bryantcodes.art/images/social.png',
+              url: 'https://tusharlaad.com/images/social.png',
               width: 2333,
               height: 1313,
-              alt: 'Bryantcodes.art wordmark over colorful, crudely scribbled illustration of laptop displaying another crudely drawn illustration of a laptop.',
+              alt: 'Tushar Laad - Data Engineer & Software Architect specializing in innovative data solutions.',
               type: 'image/png',
             },
           ],
-          site_name: 'bryantcodes.art',
+          site_name: 'tusharlaad.com',
         }}
         twitter={{
-          handle: '@bryantcodesart',
+          handle: '@tusharlaad',
           cardType: 'summary_large_image',
         }}
       />

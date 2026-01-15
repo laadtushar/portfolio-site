@@ -1,72 +1,91 @@
-import stefImage from '../public/images/stef.jpg';
-import jpImage from '../public/images/jp.jpg';
+// Testimonial photos
+import suleimanImage from '../public/images/suleiman.jpg';
+import pranjalImage from '../public/images/pranjal.jpg';
+import vinayImage from '../public/images/vinay.jpg';
+import srujanImage from '../public/images/srujan.jpg';
 
 /* eslint-disable no-multiple-empty-lines */
 /* eslint-disable max-len */
 export const aboutContent = {
-  intro: ["I'm Bryant! (he/him)", 'I build web experiences'],
+  intro: ["I'm Tushar! (he/him)", 'I build data systems & innovative solutions'],
   mission: [
-    'I am a freelance dev who helps awesome designers (like you) build their wildest dreams.',
-    'Together, let\'s create something that stands out––and has your users saying, "woah."',
+    'I am a data engineer who transforms complex data challenges into elegant, scalable solutions.',
+    'I believe in choosing innovation over safety––building systems that don\'t just work, but push boundaries.',
   ],
   testimonials: [
     {
       quote:
-        "Bryant's kickass work is complemented by his infectious energy and passion for creating original, exciting work. He is a true creative partner––always bringing new ideas to the table.",
-      shortName: 'Stef',
-      name: 'Stephanie Jung',
-      headshot: stefImage,
-      title: ['Brand Design Lead, Employer Marketing at Handshake'],
+        "Tushar's exceptional work ethic and collaborative spirit make him invaluable. His strategic thinking during our end-to-end encryption project significantly enhanced our security architecture.",
+      shortName: 'Suleiman',
+      name: 'Suleiman Muhammad Sabo',
+      headshot: suleimanImage,
+      title: ['Student Ambassador at Newcastle University'],
     },
     {
       quote:
-        "Bryant's collaborative mindset and aptitude to explore ideas well beyond the minimum viable product make him an invaluable partner.",
-      name: 'JP Ramirez',
-      shortName: 'JP',
+        "Tushar is an excellent developer and data engineer with extensive experience in data scraping, mining, analytics and ML. Very proactive in taking up problems and coming up with novel solutions.",
+      name: 'Pranjal Upadhyaya',
+      shortName: 'Pranjal',
       title: [
-        'Design Manager, Brand Design Strategy at Intuit',
-        'Director, Studio Ramírez',
+        'SDE at Astuto',
       ],
-      headshot: jpImage,
+      headshot: pranjalImage,
     },
     {
       quote:
-        "Bryant's building enables award-winning projects––including FWA Site Of The Day, Webby, 2x Awwwards Honorable Mention, CSSDA Special Kudos, CSSDA Best UI/UX/Innovation, 4x STA100, Type Director's Club, Webby For Good... & more.",
-      name: 'The award people',
-      shortName: 'Awards',
-      headshot: '/images/star-icon.svg',
+        "Hats off to Tushar. He is as committed as one can be. Technical side: built APIs, followed best practices, used Github Co-pilot, enforced good documentation. He has the inherent curiosity to solve problems.",
+      name: 'Vinay Mehendi, PhD',
+      shortName: 'Vinay',
+      title: ['CEO - Chief Frog at OceanFrogs Software'],
+      headshot: vinayImage,
+    },
+    {
+      quote:
+        "Tushar is a hardworking, passionate engineer with excellent skills at building Data Pipelines, REST APIs, and Docker. Always eager to learn new tools and frameworks.",
+      name: 'Srujan P',
+      shortName: 'Srujan',
+      title: ['Product & Engineering Manager at OceanFrogs'],
+      headshot: srujanImage,
     },
   ],
   skills: [
     `
-      9 years working with
-      best-in-class designers building award-winning projects
+      Data Engineering & ETL Development
+      Expert in building scalable data pipelines, ETL systems,
+      Azure Databricks, PySpark, and data analytics
     `,
     `
-      strong command of design systems. excellent
-      at interpreting mockups in any form (adobe, figma,
-      whatev) and working with minimal OR maximal direction
+      Full Stack Development
+      Python, JavaScript, React, Node.js, FastAPI, PHP
+      Mobile: Flutter, Android Studio
+      Always following best practices
     `,
     `
-      exceptional at visual
-      styling and attention to
-      detail.  whatever tool it
-      takes: CSS, SCSS/PostCSS,
-      Tailwind, animation,
-      2D & 3D rendering...
+      Cloud & DevOps
+      AWS, GCP, Azure
+      Docker, Kubernetes, CI/CD
+      Database modeling & optimization
+      SQL Server, PostgreSQL, NoSQL
     `,
     `
-      expert communication &
-      project management.
-      leading up, down, and laterally. transforming chaos into launches
+      API Development & Integration
+      REST APIs, FastAPI, SQL Alchemy
+      Microservices architecture
+      Real-time data processing
     `,
     `
-      full stack & at the cutting edge. this site is built with React/NextJS,
-      Typescript, Sanity, Three.js/R3F, GLSL, and a laundry list more
+      Data Science & ML
+      Data Mining, Data Scraping
+      Machine Learning pipelines
+      KeyBERT, Pandas, Beautiful Soup
+      Data labeling & model training
     `,
     `
-      always accessible, functional, responsive, compatible,
-      performant and search engine optimized
+      Security & Best Practices
+      End-to-end encryption, Cryptography
+      Information Security principles
+      Code documentation & testing
+      GitHub, Git workflows
     `,
   ],
 };

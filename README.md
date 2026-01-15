@@ -1,13 +1,21 @@
-# Disclaimer
-Fork away, reverse engineer, have a blast, reach out to me with questions! 
+# Tushar Laad - Portfolio Site
 
-But. Please do not just replace the content (e.g. with your crypto marketing) and republish the site as your own.  I wish I were joking, but this has happened twice. That I know of.
+Welcome to my portfolio website! This is an interactive 3D portfolio showcasing my work as a Data Engineer and Software Architect.
 
-# bryantcodes.art
+**Live Site:** [tusharlaad.com](https://tusharlaad.com)  
+**Original Template:** Forked from [bryantcodes.art](https://bryantcodes.art) by Bryant Smith
 
-Hello! This is my portfolio site [bryantcodes.art](https://bryantcodes.art). It is a wild work in progress (currently barely at an MVP stage) and also my safe place to experiment with new things I wanna try. Examine the code if you dare. Ha! I'm slowly going through and commenting/cleaning things I hastily created. There are actually a few novel solutions lurking in there that I'm proud of--maybe future blog posts!
+## About This Site
 
-Want to know how any particular thing was acheived? You should [write me](mailto:hello@bryantcodes.art) because I love nerding out about this stuff and my gf and dog are honestly sick of hearing about it.
+This portfolio features an immersive 3D experience built with Three.js, showcasing my projects, skills, work experience, and testimonials. The site demonstrates my technical capabilities while providing an engaging user experience.
+
+## Quick Links
+
+- 🔗 [LinkedIn](https://linkedin.com/in/tusharlaad2002)
+- 📧 Contact: tusharlaad@example.com (update this!)
+- 📝 [Deployment Guide](DEPLOYMENT_GUIDE.md)
+- 🎨 [Asset Guide](frontend/public/images/ASSETS_README.md)
+- 📊 [Projects Setup](backend/PROJECTS_GUIDE.md)
 
 # Great libraries you should try
 
@@ -34,37 +42,208 @@ In no particular order, here are some cool things I found and liked:
 
 Notice something? Like 50% of the coolest things come from [pmndrs](https://github.com/pmndrs/). I am a HUGE fan of these cats.
 
-# Dev
+# Development Setup
 
-Its a "monorepo" (sorta?) with a frontend and backend dir. I like em together so I can easily facilitate typesafety and version changes that are tightly coupled.
+This is a monorepo with separate frontend and backend directories for type-safe development.
 
-## Frontend - Next.js
+## Prerequisites
 
-TODO: Probably Astro would be better for this site, since I only really SSG a single page in the MVP. (Technically, I opened up endpoints for each 3D scene, but those are really only meant for dev convenience. I dont think I want users drilling into a particular scene directly.) And I'm totally abusing `_app`. I'm entertaining a few future features, though, for which Next.js might come in handy... So iunno. It's fine for now.
+- Node.js 16+ and Yarn
+- Sanity account ([sanity.io](https://sanity.io))
+- Vercel account for deployment ([vercel.com](https://vercel.com))
 
-The usual commands in the `frontend` dir:
+## Getting Started
+
+### 1. Clone and Install
 
 ```bash
-# Build, useful for checking if you have deploy-blocking issues
-yarn build
-# Work on the site
-yarn dev
+git clone <your-repo-url>
+cd portfolio-site
+
+# Install backend dependencies
+cd backend
+yarn install
+
+# Install frontend dependencies
+cd ../frontend
+yarn install
 ```
 
-## Backend - Sanity
-
-IMPORTANT: Don't forget to generate types if you change the Sanity schema! See below.
-
-In the `backend` dir:
+### 2. Configure Sanity
 
 ```bash
-# Basically I aliased the sanity CLI commands:
-yarn dev
-yarn deploy
-yarn build
+cd backend
 
-# Codegen for cross-stack type-safety,
-# run this any time you edit the schema
-# to generates types used in the frontend code.
+# Login to Sanity (first time only)
+npx sanity login
+
+# Initialize or link your project
+# Follow prompts to create/link Sanity project
+
+# Deploy Sanity Studio
+yarn deploy
+
+# Generate TypeScript types
 yarn build:types
 ```
+
+### 3. Configure Environment Variables
+
+Create `frontend/.env.local`:
+
+```bash
+cd frontend
+cp env.example.txt .env.local
+```
+
+Edit `.env.local` with your Sanity credentials:
+- Get Project ID from https://sanity.io/manage
+- Create API token with Read permissions
+
+### 4. Start Development
+
+**Terminal 1 - Sanity Studio:**
+```bash
+cd backend
+yarn dev
+# Opens at http://localhost:3333
+```
+
+**Terminal 2 - Next.js Frontend:**
+```bash
+cd frontend
+yarn dev
+# Opens at http://localhost:3000
+```
+
+## Project Structure
+
+```
+portfolio-site/
+├── frontend/              # Next.js application
+│   ├── pages/            # Next.js pages
+│   ├── src/              # React components & 3D scenes
+│   ├── public/           # Static assets
+│   └── styles/           # Global styles
+├── backend/              # Sanity CMS
+│   ├── schemas/          # Content schemas
+│   └── plugins/          # Sanity plugins
+├── DEPLOYMENT_GUIDE.md   # Deployment instructions
+└── README.md            # This file
+```
+
+## Frontend Commands
+
+In the `frontend` directory:
+
+```bash
+# Development server
+yarn dev
+
+# Production build (test before deploying)
+yarn build
+
+# Start production server locally
+yarn start
+
+# Linting
+yarn lint
+```
+
+## Backend Commands
+
+In the `backend` directory:
+
+```bash
+# Start Sanity Studio locally
+yarn dev
+
+# Deploy Sanity Studio to cloud
+yarn deploy
+
+# Build Sanity Studio
+yarn build
+
+# Generate TypeScript types for frontend
+# Run this EVERY TIME you change schemas!
+yarn build:types
+```
+
+## Key Features
+
+### 🎨 Interactive 3D Experience
+- Built with Three.js and React Three Fiber
+- Smooth camera transitions between scenes
+- Interactive elements and animations
+
+### 📊 Dynamic Content via Sanity CMS
+- Projects portfolio
+- Work experience timeline
+- Easy content updates without code changes
+
+### 🚀 Optimized for Vercel
+- Static Site Generation (SSG)
+- Fast page loads
+- Automatic deployments from GitHub
+
+### 📱 Fully Responsive
+- Desktop, tablet, and mobile optimized
+- Touch-friendly interactions
+- Adaptive 3D rendering
+
+## Customization
+
+### Adding Projects
+1. Open Sanity Studio (local or deployed)
+2. Create new "Project" documents
+3. See `backend/PROJECTS_GUIDE.md` for details
+
+### Updating Personal Info
+- Edit `frontend/src/aboutContent.tsx`
+- Update contact links in `frontend/src/contactHref.tsx`
+- Replace images in `frontend/public/images/`
+
+### Modifying 3D Scenes
+- Scene logic: `frontend/src/SceneDirector.tsx`
+- About slides: `frontend/src/About.tsx`
+- Experience: `frontend/src/ExperienceWindow.tsx`
+
+## Deployment
+
+See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for complete instructions.
+
+**Quick Deploy:**
+1. Push code to GitHub
+2. Import repository in Vercel
+3. Set root directory to `frontend`
+4. Add environment variables
+5. Deploy!
+
+## Important Notes
+
+⚠️ **Always run `yarn build:types` after changing Sanity schemas**
+
+⚠️ **Test build before deploying:** `cd frontend && yarn build`
+
+⚠️ **Update images:** Replace placeholder images with your own photos
+
+## Common Issues
+
+### Build fails with "Cannot find module"
+- Run `cd backend && yarn build:types`
+
+### Projects not loading
+- Check Sanity CORS origins include your domain
+- Verify API token has read permissions
+
+### 3D scenes not rendering
+- Check browser console for errors
+- Verify Three.js dependencies are installed
+- Some older browsers may not support WebGL
+
+## Performance Tips
+
+- Optimize images before uploading (use TinyPNG, Squoosh)
+- Keep 3D assets lightweight
+- Test on mobile devices
+- Use Lighthouse for performance audits

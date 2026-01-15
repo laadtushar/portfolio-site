@@ -17,12 +17,13 @@ import { ImageWindow } from './ImageWindow';
 import { TextWindow } from './TextWindow';
 import { TerminalButton } from './TerminalButton';
 import { TestimonialsWindow } from './TestimonialsWindow';
+import { ExperienceWindow } from './ExperienceWindow';
 import colors from './colors';
 // import { AwardsWindow } from './AwardsWindow';
 import { TerminalWindowButton } from './TerminalWindowButton';
 import { aboutContent } from './aboutContent';
-import selfPortraitImage from '../public/images/self-portrait.jpg';
-import haileyImage from '../public/images/hailey2.jpg';
+import selfPortraitImage from '../public/images/headshot.png';
+import testimonialImage from '../public/images/headshot-collared.png';
 
 export const Slides = ({
   slide, setScene, setSlide,
@@ -59,7 +60,7 @@ export const Slides = ({
             className="text-[max(1.5em,16px)]"
             tabIndex={scene === 'menu' ? 0 : -1}
           >
-            ABOUT_BRYANT
+            ABOUT_TUSHAR
           </TerminalButton>
         </div>
       </div>
@@ -68,7 +69,7 @@ export const Slides = ({
 
   return (
     <>
-      {(slide === 'mission' || slide === 'testimonials' || slide === 'skills') && (
+      {(slide === 'mission' || slide === 'testimonials' || slide === 'skills' || slide === 'experience') && (
         <div
           className={`
           grid h-full
@@ -78,7 +79,7 @@ export const Slides = ({
         `}
         >
           <TextWindow
-            title="BRYANT_SMITH.exe"
+            title="TUSHAR_LAAD.exe"
             className={`
             relative self-baseline
             ${breakpoints.about ? '' : `
@@ -117,12 +118,12 @@ export const Slides = ({
             transition-transform duration-[1s]
             ${slide === 'mission' ? '' : 'translate-x-[20%] translate-y-[70%]'}
           `}
-            srcs={[selfPortraitImage]}
-            alts={['Crayon illustration of Bryant from decades ago.']}
+          srcs={[selfPortraitImage]}
+          alts={['Professional headshot placeholder.']}
           />
         </div>
       )}
-      {(slide === 'testimonials' || slide === 'skills') && (
+      {(slide === 'testimonials' || slide === 'skills' || slide === 'experience') && (
       <div
         className={`
           absolute top-0 left-0 w-full h-full
@@ -149,8 +150,8 @@ export const Slides = ({
             transition-transform duration-[1s]
             ${slide === 'testimonials' ? '' : 'translate-x-[-70%] translate-y-[-10%]'}
           `}
-          srcs={[haileyImage]}
-          alts={['My dog Hailey smiling her crazy smile.']}
+          srcs={[testimonialImage]}
+          alts={['Professional headshot placeholder.']}
         />
 
         <TestimonialsWindow
@@ -227,6 +228,41 @@ export const Slides = ({
             setSlide={setSlide}
             // draggable={false}
           />
+        </div>
+      )}
+      {(slide === 'experience') && (
+        <div
+          className={`
+          absolute top-0 left-0 w-full h-full
+          grid place-items-center
+          pointer-events-none
+          p-[2em]
+        `}
+        >
+          <ExperienceWindow
+            className={`
+              w-full max-w-[50em] max-h-[90%] overflow-y-auto
+              ${breakpoint ? '' : 'max-w-[90%]'}
+            `}
+            title="WORK_EXPERIENCE.log"
+            delay={500}
+            topColor="cyan"
+            color="white"
+          />
+          <div className="mt-[2em]">
+            <TerminalWindowButton
+              onClick={() => {
+                setScene('menu');
+                setSlide('intro');
+              }}
+              delay={1000}
+              color="black"
+              bgColor="lime"
+              disabled={slide !== 'experience'}
+            >
+              back to menu
+            </TerminalWindowButton>
+          </div>
         </div>
       )}
     </>

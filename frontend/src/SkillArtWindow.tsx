@@ -679,11 +679,10 @@ export const SkillArtWindow = ({
               color="black"
               bgColor="yellow"
               onClick={() => {
-                setScene('menu');
-                setSlide('intro');
+                setSlide('experience');
               }}
             >
-              BACK_TO_MENU
+              VIEW_EXPERIENCE
             </TerminalWindowButton>
             <TerminalWindowButton
               key="back-to-menu-and-contact"

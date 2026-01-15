@@ -12,6 +12,7 @@ import author from './author'
 import youtube from './youtube'
 import vimeo from './vimeo'
 import project from './project'
+import experience from './experience'
 import imageFigure from './imageFigure'
 import videoFigure from './videoFigure'
 // import config from './config'
@@ -22,6 +23,7 @@ export default createSchema({
   types: schemaTypes.concat([
     post,
     project,
+    experience,
     author,
     category,
     // config,
