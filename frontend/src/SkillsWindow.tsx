@@ -151,17 +151,17 @@ export const SkillsWindow = ({
         noCloseButton
         wrapperClassName="overflow-hidden"
       >
-        <div className="overflow-y-auto h-full w-full p-4 md:p-6" style={{ maxHeight: 'calc(85vh - 4em)' }}>
-          <div className="font-mono text-white mb-4">
-            <div className="text-2xl md:text-3xl font-bold mb-2 text-cyan-400">
+        <div className="overflow-y-auto h-full w-full p-3 sm:p-4 md:p-6" style={{ maxHeight: 'calc(90vh - 3em)' }}>
+          <div className="font-mono text-white mb-3 sm:mb-4">
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-cyan-400">
               {'>'} SKILLS.EXE
             </div>
-            <div className="text-sm md:text-base text-gray-300 mb-4">
+            <div className="text-xs sm:text-sm md:text-base text-gray-300 mb-3 sm:mb-4">
               Click any category to explore 👇
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 md:gap-4">
             {skillCategories.map((category, index) => (
               <button
                 key={category.title}
@@ -170,7 +170,7 @@ export const SkillsWindow = ({
                   setActiveCategory(activeCategory === index ? null : index)
                 }
                 className={`
-                  text-left p-4 rounded-lg border-2 
+                  text-left p-3 sm:p-4 rounded-lg border-2 
                   transition-all duration-300 ease-out
                   ${
                     activeCategory === index
@@ -186,8 +186,8 @@ export const SkillsWindow = ({
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">{category.emoji}</span>
-                    <h3 className="font-bold text-lg md:text-xl">
+                    <span className="text-xl sm:text-2xl">{category.emoji}</span>
+                    <h3 className="font-bold text-base sm:text-lg md:text-xl">
                       {category.title}
                     </h3>
                   </div>

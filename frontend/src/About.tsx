@@ -162,7 +162,7 @@ export const Slides = ({
             transition-transform duration-[1s]
             ${slide === 'testimonials' ? '' : 'translate-x-[43%] translate-y-[-80%]'}
             ${breakpoint ? 'self-baseline' : 'col-[1/-1] row-[1/-1] self-end'}
-            max-h-[85vh] overflow-y-auto
+            max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh] overflow-y-auto
           `}
           delay={1000}
           title="KIND_WORDS_FROM_OTHERS.exe"
@@ -219,11 +219,11 @@ export const Slides = ({
           absolute top-0 left-0 w-full h-full
           grid place-items-center
           pointer-events-none
-          p-[2em]
+          p-2 sm:p-4 md:p-[2em]
         `}
         >
           <SkillsWindow
-            className="w-full max-w-[60em] h-[85vh] overflow-hidden"
+            className="w-full max-w-[60em] h-[90vh] sm:h-[88vh] md:h-[85vh] overflow-hidden"
             title="SKILLS.EXE"
             color="white"
             topColor="white"
@@ -238,13 +238,14 @@ export const Slides = ({
           absolute top-0 left-0 w-full h-full
           grid place-items-center
           pointer-events-none
-          p-[2em]
+          p-2 sm:p-4 md:p-[2em]
+          overflow-hidden
         `}
         >
           <ExperienceWindow
             className={`
-              w-full max-w-[50em] max-h-[90%] overflow-y-auto
-              ${breakpoint ? '' : 'max-w-[90%]'}
+              w-full max-w-[50em] max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh]
+              ${breakpoint ? '' : 'max-w-[95%]'}
             `}
             title="WORK_EXPERIENCE.log"
             delay={500}
@@ -272,14 +273,14 @@ export const Slides = ({
           absolute top-0 left-0 w-full h-full
           grid place-items-center
           pointer-events-none
-          p-[2em]
+          p-2 sm:p-4 md:p-[2em]
           overflow-hidden
         `}
         >
           <EducationWindow
             className={`
-              w-full max-w-[50em] max-h-[85vh] overflow-y-auto
-              ${breakpoint ? '' : 'max-w-[90%]'}
+              w-full max-w-[50em] max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh]
+              ${breakpoint ? '' : 'max-w-[95%]'}
             `}
             title="EDUCATION.log"
             delay={500}
@@ -307,14 +308,14 @@ export const Slides = ({
           absolute top-0 left-0 w-full h-full
           grid place-items-center
           pointer-events-none
-          p-[2em]
+          p-2 sm:p-4 md:p-[2em]
           overflow-hidden
         `}
         >
           <VolunteerWindow
             className={`
-              w-full max-w-[50em] max-h-[85vh] overflow-y-auto
-              ${breakpoint ? '' : 'max-w-[90%]'}
+              w-full max-w-[50em] max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh]
+              ${breakpoint ? '' : 'max-w-[95%]'}
             `}
             title="ADDITIONAL_EXPERIENCE.log"
             delay={500}
