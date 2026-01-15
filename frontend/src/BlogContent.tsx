@@ -2,7 +2,12 @@
 /* eslint-disable react/prop-types */
 import React, { ReactNode, useMemo } from 'react';
 import {
-  PortableText, PortableTextBlockComponent, PortableTextMarkComponent, PortableTextTypeComponent,
+  PortableText,
+  PortableTextBlockComponent,
+  PortableTextListComponent,
+  PortableTextListItemComponent,
+  PortableTextMarkComponent,
+  PortableTextTypeComponent,
 } from '@portabletext/react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { TypedObject } from '@portabletext/types';
@@ -100,12 +105,28 @@ export const BlogBody = ({ post }: { post: Post; }) => useMemo(() => (
           normal: PBlock,
         },
         list: {
-          bullet: ({ children }: { children: ReactNode }) => <ul className="list-disc list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">{children}</ul>,
-          number: ({ children }: { children: ReactNode }) => <ol className="list-decimal list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">{children}</ol>,
+          bullet: ({ children }: Parameters<PortableTextListComponent>[0]) => (
+            <ul className="list-disc list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">
+              {children}
+            </ul>
+          ),
+          number: ({ children }: Parameters<PortableTextListComponent>[0]) => (
+            <ol className="list-decimal list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">
+              {children}
+            </ol>
+          ),
         },
         listItem: {
-          bullet: ({ children }: { children: ReactNode }) => <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">{children}</li>,
-          number: ({ children }: { children: ReactNode }) => <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">{children}</li>,
+          bullet: ({ children }: Parameters<PortableTextListItemComponent>[0]) => (
+            <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">
+              {children}
+            </li>
+          ),
+          number: ({ children }: Parameters<PortableTextListItemComponent>[0]) => (
+            <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">
+              {children}
+            </li>
+          ),
         },
       }}
     />
