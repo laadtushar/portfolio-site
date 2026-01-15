@@ -2,14 +2,55 @@ const sanityClient = require('@sanity/client');
 const fs = require('fs');
 const path = require('path');
 
+// Read sanity.json for project config
+let sanityConfig = {};
+try {
+  sanityConfig = JSON.parse(fs.readFileSync(path.join(__dirname, 'sanity.json'), 'utf8'));
+} catch (error) {
+  console.warn('⚠️  Could not read sanity.json, using environment variables only');
+}
+
 // Initialize Sanity client
+const projectId = process.env.SANITY_STUDIO_API_PROJECT_ID 
+  || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID 
+  || process.env.SANITY_PROJECT_ID
+  || sanityConfig?.api?.projectId;
+
+const dataset = process.env.SANITY_STUDIO_API_DATASET 
+  || process.env.NEXT_PUBLIC_SANITY_DATASET 
+  || process.env.SANITY_DATASET
+  || sanityConfig?.api?.dataset 
+  || 'production';
+
+const token = process.env.SANITY_AUTH_TOKEN 
+  || process.env.SANITY_TOKEN
+  || process.env.SANITY_API_TOKEN;
+
+if (!projectId) {
+  console.error('❌ Error: Sanity projectId is required!');
+  console.error('   Set one of these environment variables:');
+  console.error('   - SANITY_STUDIO_API_PROJECT_ID');
+  console.error('   - NEXT_PUBLIC_SANITY_PROJECT_ID');
+  console.error('   - SANITY_PROJECT_ID');
+  console.error('   Or set it in backend/sanity.json under api.projectId');
+  process.exit(1);
+}
+
+if (!token) {
+  console.warn('⚠️  Warning: No auth token provided. You may not be able to write data.');
+  console.warn('   Set SANITY_AUTH_TOKEN, SANITY_TOKEN, or SANITY_API_TOKEN');
+  console.warn('   Get your token from: https://sanity.io/manage');
+}
+
 const client = sanityClient({
-  projectId: process.env.SANITY_STUDIO_API_PROJECT_ID || process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_STUDIO_API_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-  token: process.env.SANITY_AUTH_TOKEN,
+  projectId,
+  dataset,
+  token,
   useCdn: false,
   apiVersion: '2023-05-03',
 });
+
+console.log(`📋 Using Sanity project: ${projectId}, dataset: ${dataset}\n`);
 
 async function importData() {
   try {
