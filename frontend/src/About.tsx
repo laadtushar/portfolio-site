@@ -11,7 +11,7 @@ import { CustomCursorHover } from './CustomCursor';
 import { SceneName, useSceneController } from './SceneController';
 import { Typewriter, TIME_PER_CHAR } from './Typewriter';
 import { useBreakpoints } from './useBreakpoints';
-import { SkillArtWindow } from './SkillArtWindow';
+import { SkillsWindow } from './SkillsWindow';
 import { SlideName } from './SlideName';
 import { ImageWindow } from './ImageWindow';
 import { TextWindow } from './TextWindow';
@@ -221,14 +221,13 @@ export const Slides = ({
           pointer-events-none
         `}
         >
-          <SkillArtWindow
+          <SkillsWindow
             className="w-full h-full"
-            title="PAINT_TO_REVEAL_MY_SKILLS"
+            title="SKILLS.EXE"
             color="white"
             topColor="white"
             setScene={setScene}
             setSlide={setSlide}
-            // draggable={false}
           />
         </div>
       )}
