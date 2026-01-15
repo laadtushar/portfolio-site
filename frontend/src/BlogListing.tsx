@@ -93,7 +93,7 @@ export function BlogListing({ active, posts, ...groupProps }:
         </animated.mesh>
       </animated.group>
       <group>
-        {!aPostIsOpen && (
+        {active && !aPostIsOpen && (
           <Text
             fontSize={0.3}
             color={colors.yellow}

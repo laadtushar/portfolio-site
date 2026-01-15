@@ -78,9 +78,6 @@ export function Notebook({ ...groupProps }:GroupProps) {
           cursor="open-blog"
           onClick={() => {
             sceneController.setScene('blog');
-            if (typeof window !== 'undefined') {
-              window.location.href = '/blog';
-            }
           }}
           onFocus={() => {}}
           onBlur={() => {}}
@@ -96,9 +93,6 @@ export function Notebook({ ...groupProps }:GroupProps) {
           cursor="close-blog"
           onClick={() => {
             sceneController.setScene('menu');
-            if (typeof window !== 'undefined') {
-              window.location.href = '/';
-            }
           }}
           onFocus={() => {}}
           onBlur={() => {}}

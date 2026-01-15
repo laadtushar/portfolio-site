@@ -147,8 +147,6 @@ export const CTA = () => {
       >
         <a
           href={contactHref}
-          target="_blank"
-          rel="noreferrer"
           className={`
             block fixed top-0 left-0 text-[min(4vw,1.3rem)]  pr-[1rem] py-[1rem] font-mono tracking-wide pl-[0.5em]
             ${showStats ? '' : 'z-[88888888]'}
