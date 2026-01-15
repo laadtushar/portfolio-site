@@ -98,7 +98,7 @@ export const VolunteerWindow = ({
         </Typewriter>
       </div>
       <div className="space-y-[1.5em]">
-        {volunteerExperiences.map((exp, index) => (
+        {volunteerExperiences.map((exp) => (
           <div
             key={`${exp.organization}-${exp.role}`}
             className="relative pl-[1.5em] border-l-[2px] border-yellow"
@@ -119,8 +119,8 @@ export const VolunteerWindow = ({
 
             {/* Highlights */}
             <ul className="mt-[0.5em] space-y-[0.2em] text-[0.85em]">
-              {exp.highlights.map((highlight, i) => (
-                <li key={i} className="flex gap-[0.4em]">
+              {exp.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-[0.4em]">
                   <span className="text-yellow text-[0.8em]">•</span>
                   <span>{highlight}</span>
                 </li>

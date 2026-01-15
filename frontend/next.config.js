@@ -12,13 +12,15 @@ const nextConfig = {
   optimizeFonts: false,
   // Add the following redirect configuration
   async redirects() {
-    return [
-      {
+    const redirects = [];
+    if (process.env.CHECKIN_REDIRECT) {
+      redirects.push({
         source: '/check-in',
         destination: process.env.CHECKIN_REDIRECT,
         permanent: false,
-      },
-    ];
+      });
+    }
+    return redirects;
   },
 };
 
