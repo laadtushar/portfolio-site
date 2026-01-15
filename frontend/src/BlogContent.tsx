@@ -10,11 +10,11 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { ImageFigure, Post } from '../generatedSanitySchemaTypes';
 import { getSanityImageUrlFor } from './sanity/sanityImageBuilder';
 
-const P = ({ children, className = '' }: { children: ReactNode; className?: string; }) => (<p className={`my-4 text-black ${className}`}>{children}</p>);
+const P = ({ children, className = '' }: { children: ReactNode; className?: string; }) => (<p className={`my-3 sm:my-4 text-sm sm:text-base text-black ${className}`}>{children}</p>);
 
 const H2 = ({ children }: { children: ReactNode; }) => (
   <h2
-    className="mt-16 font-mono text-2xl font-bold text-black"
+    className="mt-8 sm:mt-12 md:mt-16 font-mono text-lg sm:text-xl md:text-2xl font-bold text-black"
   >
     {children}
   </h2>
@@ -56,11 +56,11 @@ const H3Block: PortableTextBlockComponent = ({ children }) => (<h3 className="my
 
 export const BlogHeader = ({ post }: { post: Post; }) => (
   <>
-    <h1 className="font-mono text-[clamp(1.5rem,6vw,3rem)] my-12 leading-[1.2] font-bold text-black">
+    <h1 className="font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl my-4 sm:my-6 md:my-8 lg:my-12 leading-[1.2] font-bold text-black">
       {post?.title}
     </h1>
     {post?.publishedAt && (
-      <div className="text-sm opacity-70 mb-8 text-black">
+      <div className="text-xs sm:text-sm opacity-70 mb-4 sm:mb-6 md:mb-8 text-black">
         📅 {new Date(post.publishedAt).toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
@@ -69,7 +69,7 @@ export const BlogHeader = ({ post }: { post: Post; }) => (
       </div>
     )}
     {post?.mainImage && (
-      <div className="my-8 border-[2px] border-black">
+      <div className="my-4 sm:my-6 md:my-8 border-[2px] border-black">
         <img
           src={
             getSanityImageUrlFor(post.mainImage as SanityImageSource)
