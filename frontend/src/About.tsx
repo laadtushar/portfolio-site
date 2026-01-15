@@ -162,7 +162,7 @@ export const Slides = ({
             transition-transform duration-[1s]
             ${slide === 'testimonials' ? '' : 'translate-x-[43%] translate-y-[-80%]'}
             ${breakpoint ? 'self-baseline' : 'col-[1/-1] row-[1/-1] self-end'}
-            max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh] overflow-y-auto
+            max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh]
           `}
           delay={1000}
           title="KIND_WORDS_FROM_OTHERS.exe"
@@ -209,10 +209,11 @@ export const Slides = ({
           grid place-items-center
           pointer-events-none
           p-2 sm:p-4 md:p-[2em]
+          overflow-hidden
         `}
         >
           <SkillsWindow
-            className="w-full max-w-[60em] h-[90vh] sm:h-[88vh] md:h-[85vh] overflow-hidden"
+            className="w-full max-w-[60em] max-h-[90vh] sm:max-h-[88vh] md:max-h-[85vh]"
             title="SKILLS.EXE"
             color="white"
             topColor="white"

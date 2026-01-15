@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from 'next/image';
 import React from 'react';
+import Image, { StaticImageData } from 'next/image';
 import { TerminalWindow } from './TerminalWindow';
 import { TerminalWindowProps } from './TerminalWindowProps';
 
@@ -16,12 +16,11 @@ export const ImageWindow = ({
   <TerminalWindow {...terminalWindowProps}>
     <Image
       src={srcs[0]}
-      layout="fill"
-      objectFit="cover"
+      fill
       placeholder="blur"
-      objectPosition={String(positions[0])}
       alt={alts[0]}
-      className="pointer-events-none"
+      className="pointer-events-none object-cover"
+      style={{ objectPosition: String(positions[0]) }}
     />
   </TerminalWindow>
 );

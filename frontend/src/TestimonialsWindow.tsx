@@ -142,7 +142,7 @@ export const TestimonialsWindow = ({
                             className="object-cover rounded-full pointer-events-none"
                             alt="headshot"
                             placeholder="blur"
-                            layout="fill"
+                            fill
                           />
                         </div>
                       )}
