@@ -49,10 +49,41 @@ const educationList: Education[] = [
 ];
 
 export const EducationWindow = ({
+  slide: currentSlide,
+  setSlide,
+  setScene: setSceneProp,
   ...terminalWindowProps
-}: Omit<TerminalWindowProps, 'children'>) => (
+}: {
+  slide?: string;
+  setSlide?: (_slide: any) => void;
+  setScene?: (_scene: any) => void;
+} & Omit<TerminalWindowProps, 'children'>) => (
   <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
     <div className="p-[1em] text-[0.9em] overflow-y-auto h-full">
+      {/* Navigation buttons at top */}
+      {setSlide && setSceneProp && (
+        <div className="mb-[1em] flex gap-[0.5em] justify-center flex-wrap">
+          <button
+            type="button"
+            onClick={() => setSlide('volunteer')}
+            disabled={currentSlide !== 'education'}
+            className="bg-lime text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            additional experience? →
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setSceneProp('menu');
+              setSlide('intro');
+            }}
+            disabled={currentSlide !== 'education'}
+            className="bg-cyan text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            ← back to menu
+          </button>
+        </div>
+      )}
       <div className="space-y-[2em]">
         {educationList.map((edu, index) => (
           <div

@@ -132,7 +132,7 @@ const skillCategories: SkillCategory[] = [
 ];
 
 export const SkillsWindow = ({
-  setScene: _setScene,
+  setScene,
   setSlide,
   ...terminalWindowProps
 }: {
@@ -152,6 +152,29 @@ export const SkillsWindow = ({
         wrapperClassName="overflow-hidden"
       >
         <div className="overflow-y-auto h-full w-full p-3 sm:p-4 md:p-6" style={{ maxHeight: 'calc(90vh - 3em)' }}>
+          {/* Navigation at top */}
+          <div className="mb-4 flex flex-wrap gap-2 sm:gap-3 justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                setSlide('experience');
+              }}
+              className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono bg-cyan-500 hover:bg-cyan-600 text-black font-bold border-[2px] border-black transition-all hover:scale-105 active:scale-95"
+            >
+              experience →
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setScene('menu');
+                setSlide('intro');
+              }}
+              className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono bg-gray-700 hover:bg-gray-600 text-white font-bold border-[2px] border-white transition-all hover:scale-105 active:scale-95"
+            >
+              ← back to menu
+            </button>
+          </div>
+
           <div className="font-mono text-white mb-3 sm:mb-4">
             <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-cyan-400">
               {'>'} SKILLS.EXE

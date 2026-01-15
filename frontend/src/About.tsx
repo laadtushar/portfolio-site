@@ -22,7 +22,7 @@ import { EducationWindow } from './EducationWindow';
 import { VolunteerWindow } from './VolunteerWindow';
 import colors from './colors';
 // import { AwardsWindow } from './AwardsWindow';
-import { TerminalWindowButton } from './TerminalWindowButton';
+// import { TerminalWindowButton } from './TerminalWindowButton';
 import { aboutContent } from './aboutContent';
 import selfPortraitImage from '../public/images/headshot.png';
 import testimonialImage from '../public/images/headshot-collared.png';
@@ -168,22 +168,11 @@ export const Slides = ({
           title="KIND_WORDS_FROM_OTHERS.exe"
           color={colors.lime}
           topColor={colors.cyan}
-        >
-          <div className={`grid place-items-center mt-[2em] ${breakpoint ? 'col-span-2' : ''}`}>
-            <TerminalWindowButton
-              onClick={() => {
-                setSlide('skills');
-              }}
-              delay={1000}
-              color="black"
-              bgColor="violet"
-              disabled={slide !== 'testimonials'}
-            >
-              skills, tho?
-            </TerminalWindowButton>
-          </div>
-
-        </TestimonialsWindow>
+          slide={slide}
+          setSlide={setSlide}
+          setScene={setScene}
+          breakpoint={breakpoint}
+        />
         {/* <TextWindow
           title={null}
           className={`
@@ -251,20 +240,10 @@ export const Slides = ({
             delay={500}
             topColor="cyan"
             color="white"
+            slide={slide}
+            setSlide={setSlide}
+            setScene={setScene}
           />
-          <div className="mt-[2em] pointer-events-auto">
-            <TerminalWindowButton
-              onClick={() => {
-                setSlide('education');
-              }}
-              delay={1000}
-              color="black"
-              bgColor="lime"
-              disabled={slide !== 'experience'}
-            >
-              education?
-            </TerminalWindowButton>
-</div>
         </div>
       )}
       {(slide === 'education') && (
@@ -286,20 +265,10 @@ export const Slides = ({
             delay={500}
             topColor="violet"
             color="white"
+            slide={slide}
+            setSlide={setSlide}
+            setScene={setScene}
           />
-          <div className="mt-[2em] pointer-events-auto">
-            <TerminalWindowButton
-              onClick={() => {
-                setSlide('volunteer');
-              }}
-              delay={1000}
-              color="black"
-              bgColor="yellow"
-              disabled={slide !== 'education'}
-            >
-              additional experience?
-            </TerminalWindowButton>
-          </div>
         </div>
       )}
       {(slide === 'volunteer') && (
@@ -321,21 +290,10 @@ export const Slides = ({
             delay={500}
             topColor="orange"
             color="white"
+            slide={slide}
+            setSlide={setSlide}
+            setScene={setScene}
           />
-          <div className="mt-[2em] pointer-events-auto">
-            <TerminalWindowButton
-              onClick={() => {
-                setScene('menu');
-                setSlide('intro');
-              }}
-              delay={1000}
-              color="black"
-              bgColor="lime"
-              disabled={slide !== 'volunteer'}
-            >
-              back to menu
-            </TerminalWindowButton>
-          </div>
         </div>
       )}
     </>

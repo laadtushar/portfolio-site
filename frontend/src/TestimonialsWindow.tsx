@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { event } from 'nextjs-google-analytics';
 import { TerminalWindowProps } from './TerminalWindowProps';
@@ -36,14 +36,20 @@ export const QuoteFigure = ({ testimonial, hidden = false }:
 );
 
 export const TestimonialsWindow = ({
-  children,
+  slide: currentSlide,
+  setSlide,
+  setScene: setSceneProp,
+  breakpoint,
   ...terminalWindowProps
 }: {
-  children:ReactNode
+  slide?: string;
+  setSlide?: (_slide: any) => void;
+  setScene?: (_scene: any) => void;
+  breakpoint?: boolean;
 } & Omit<TerminalWindowProps, 'children'>) => {
   const [messageIndex, setMessageIndex] = useState(0);
   const breakpoints = useBreakpoints();
-  const breakpoint = breakpoints.about;
+  const breakpointVal = breakpoint ?? breakpoints.about;
 
   const testimonial = testimonials?.[messageIndex];
 
@@ -57,7 +63,33 @@ export const TestimonialsWindow = ({
     <TerminalWindow
       {...terminalWindowProps}
     >
-      <div className={`grid p-[1em] ${breakpoint ? 'grid-cols-[8em_1fr]' : ''} overflow-y-auto`}>
+      <div className={`grid p-[1em] ${breakpointVal ? 'grid-cols-[8em_1fr]' : ''} overflow-y-auto`}>
+        {/* Navigation buttons at top */}
+        {setSlide && setSceneProp && (
+          <div className={`mb-[1em] flex gap-[0.5em] justify-center ${breakpointVal ? 'col-span-2' : ''}`}>
+            <button
+              type="button"
+              onClick={() => {
+                setSlide('skills');
+              }}
+              disabled={currentSlide !== 'testimonials'}
+              className="bg-violet text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.9em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              skills, tho? →
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setSceneProp('menu');
+                setSlide('intro');
+              }}
+              disabled={currentSlide !== 'testimonials'}
+              className="bg-lime text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.9em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              ← back to menu
+            </button>
+          </div>
+        )}
         {/* <div className="flex items-center justify-center col-span-2 mt-[-1em] gap-[0.5em]">
           <div className="relative inline-block">
             <span
@@ -135,7 +167,6 @@ export const TestimonialsWindow = ({
           <QuoteFigure testimonial={longestTestimonial} hidden />
           <QuoteFigure testimonial={testimonial} />
         </div>
-        {children}
       </div>
     </TerminalWindow>
   );
