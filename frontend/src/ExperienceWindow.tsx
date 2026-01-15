@@ -96,15 +96,15 @@ export const ExperienceWindow = ({
   setScene?: (_scene: any) => void;
 } & Omit<TerminalWindowProps, 'children'>) => (
   <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
-    <div className="p-[1em] text-[0.9em] overflow-y-auto h-full" style={{ maxHeight: 'calc(90vh - 3em)' }}>
+    <div className="p-[0.75em] sm:p-[1em] text-[0.8em] sm:text-[0.85em] md:text-[0.9em] overflow-y-auto h-full" style={{ maxHeight: 'calc(90vh - 3em)' }}>
       {/* Navigation buttons at top */}
       {setSlide && setSceneProp && (
-        <div className="mb-[1em] flex gap-[0.5em] justify-center flex-wrap">
+        <div className="mb-[0.75em] sm:mb-[1em] flex gap-[0.4em] sm:gap-[0.5em] justify-center flex-wrap">
           <button
             type="button"
             onClick={() => setSlide('education')}
             disabled={currentSlide !== 'experience'}
-            className="bg-lime text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-lime text-black px-[0.75em] sm:px-[1em] py-[0.4em] sm:py-[0.5em] font-mono font-bold text-[0.75em] sm:text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
           >
             education? →
           </button>
@@ -115,45 +115,45 @@ export const ExperienceWindow = ({
               setSlide('intro');
             }}
             disabled={currentSlide !== 'experience'}
-            className="bg-cyan text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-cyan text-black px-[0.75em] sm:px-[1em] py-[0.4em] sm:py-[0.5em] font-mono font-bold text-[0.75em] sm:text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
           >
             ← back to menu
           </button>
         </div>
       )}
-      <div className="space-y-[2em]">
+      <div className="space-y-[1.5em] sm:space-y-[2em]">
         {experiences.map((exp, index) => (
           <div
             key={exp.company}
-            className="relative pl-[2em] border-l-[3px] border-cyan"
+            className="relative pl-[1.5em] sm:pl-[2em] border-l-[2px] sm:border-l-[3px] border-cyan"
           >
             {/* Timeline dot */}
-            <div className="absolute left-[-0.6em] top-[0.3em] w-[1em] h-[1em] bg-cyan rounded-full border-[3px] border-black" />
+            <div className="absolute left-[-0.5em] sm:left-[-0.6em] top-[0.3em] w-[0.8em] h-[0.8em] sm:w-[1em] sm:h-[1em] bg-cyan rounded-full border-[2px] sm:border-[3px] border-black" />
 
             {/* Current badge */}
             {exp.current && (
-              <div className="inline-block bg-lime text-black px-[0.5em] py-[0.2em] text-[0.8em] font-bold mb-[0.5em]">
+              <div className="inline-block bg-lime text-black px-[0.4em] sm:px-[0.5em] py-[0.15em] sm:py-[0.2em] text-[0.7em] sm:text-[0.8em] font-bold mb-[0.4em] sm:mb-[0.5em]">
                 CURRENT
               </div>
             )}
 
             {/* Company & Role */}
-            <div className="font-bold text-[1.1em] leading-tight">
+            <div className="font-bold text-[1em] sm:text-[1.1em] leading-tight">
               <Typewriter delay={index * 200} timePerChar={1}>
                 {exp.role}
               </Typewriter>
             </div>
-            <div className="text-cyan font-bold mt-[0.3em]">
+            <div className="text-cyan font-bold mt-[0.2em] sm:mt-[0.3em] text-[0.9em] sm:text-[1em]">
               {exp.company}
             </div>
-            <div className="text-[0.85em] opacity-80 mt-[0.2em]">
+            <div className="text-[0.75em] sm:text-[0.85em] opacity-80 mt-[0.15em] sm:mt-[0.2em]">
               {exp.duration} • {exp.location}
             </div>
 
             {/* Highlights */}
-            <ul className="mt-[0.8em] space-y-[0.3em] text-[0.9em]">
+            <ul className="mt-[0.6em] sm:mt-[0.8em] space-y-[0.2em] sm:space-y-[0.3em] text-[0.8em] sm:text-[0.9em]">
               {exp.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-[0.5em]">
+                <li key={highlight} className="flex gap-[0.4em] sm:gap-[0.5em]">
                   <span className="text-lime">▸</span>
                   <span>{highlight}</span>
                 </li>
@@ -161,11 +161,11 @@ export const ExperienceWindow = ({
             </ul>
 
             {/* Technologies */}
-            <div className="mt-[0.8em] flex flex-wrap gap-[0.4em]">
+            <div className="mt-[0.6em] sm:mt-[0.8em] flex flex-wrap gap-[0.3em] sm:gap-[0.4em]">
               {exp.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-violet text-black px-[0.5em] py-[0.1em] text-[0.75em] font-mono"
+                  className="bg-violet text-black px-[0.4em] sm:px-[0.5em] py-[0.1em] text-[0.65em] sm:text-[0.75em] font-mono"
                 >
                   {tech}
                 </span>

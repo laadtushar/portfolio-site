@@ -98,10 +98,10 @@ export const VolunteerWindow = ({
   setScene?: (_scene: any) => void;
 } & Omit<TerminalWindowProps, 'children'>) => (
   <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
-    <div className="p-[1em] text-[0.9em] overflow-y-auto h-full" style={{ maxHeight: 'calc(90vh - 3em)' }}>
+    <div className="p-[0.75em] sm:p-[1em] text-[0.8em] sm:text-[0.85em] md:text-[0.9em] overflow-y-auto h-full" style={{ maxHeight: 'calc(90vh - 3em)' }}>
       {/* Navigation button at top */}
       {setSlide && setSceneProp && (
-        <div className="mb-[1em] flex gap-[0.5em] justify-center">
+        <div className="mb-[0.75em] sm:mb-[1em] flex gap-[0.4em] sm:gap-[0.5em] justify-center">
           <button
             type="button"
             onClick={() => {
@@ -109,42 +109,42 @@ export const VolunteerWindow = ({
               setSlide('intro');
             }}
             disabled={currentSlide !== 'volunteer'}
-            className="bg-lime text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-lime text-black px-[0.75em] sm:px-[1em] py-[0.4em] sm:py-[0.5em] font-mono font-bold text-[0.75em] sm:text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
           >
             ← back to menu
           </button>
         </div>
       )}
-      <div className="mb-[1em] text-orange font-bold text-[1.1em]">
+      <div className="mb-[0.75em] sm:mb-[1em] text-orange font-bold text-[1em] sm:text-[1.1em]">
         <Typewriter delay={0} timePerChar={2}>
           ADDITIONAL EXPERIENCE
         </Typewriter>
       </div>
-      <div className="space-y-[1.5em]">
+      <div className="space-y-[1.25em] sm:space-y-[1.5em]">
         {volunteerExperiences.map((exp) => (
           <div
             key={`${exp.organization}-${exp.role}`}
-            className="relative pl-[1.5em] border-l-[2px] border-orange"
+            className="relative pl-[1.25em] sm:pl-[1.5em] border-l-[2px] border-orange"
           >
             {/* Timeline dot */}
-            <div className="absolute left-[-0.45em] top-[0.2em] w-[0.7em] h-[0.7em] bg-orange rounded-full border-[2px] border-black" />
+            <div className="absolute left-[-0.4em] sm:left-[-0.45em] top-[0.2em] w-[0.6em] h-[0.6em] sm:w-[0.7em] sm:h-[0.7em] bg-orange rounded-full border-[2px] border-black" />
 
             {/* Role & Organization */}
-            <div className="font-bold text-[1em] leading-tight">
+            <div className="font-bold text-[0.9em] sm:text-[1em] leading-tight">
               {exp.role}
             </div>
-            <div className="text-orange text-[0.9em] mt-[0.2em]">
+            <div className="text-orange text-[0.8em] sm:text-[0.9em] mt-[0.15em] sm:mt-[0.2em]">
               {exp.organization}
             </div>
-            <div className="text-[0.8em] opacity-70 mt-[0.1em]">
+            <div className="text-[0.7em] sm:text-[0.8em] opacity-70 mt-[0.1em]">
               {exp.duration} • {exp.type}
             </div>
 
             {/* Highlights */}
-            <ul className="mt-[0.5em] space-y-[0.2em] text-[0.85em]">
+            <ul className="mt-[0.4em] sm:mt-[0.5em] space-y-[0.15em] sm:space-y-[0.2em] text-[0.75em] sm:text-[0.85em]">
               {exp.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-[0.4em]">
-                  <span className="text-orange text-[0.8em]">•</span>
+                <li key={highlight} className="flex gap-[0.3em] sm:gap-[0.4em]">
+                  <span className="text-orange text-[0.7em] sm:text-[0.8em]">•</span>
                   <span>{highlight}</span>
                 </li>
               ))}

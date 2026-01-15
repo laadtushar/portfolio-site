@@ -114,15 +114,15 @@ export const TestimonialsWindow = ({
           </h2>
         </div> */}
         <div>
-          <ul className={`${breakpoint ? '' : 'flex'}`}>
+          <ul className={`${breakpoint ? '' : 'flex flex-wrap justify-center gap-1'}`}>
             {testimonials.map(({ shortName, headshot }, index) => (
               <li key={shortName}>
                 <button
                   onClick={() => { setMessageIndex(index); }}
                   type="button"
                   className={`
-                  flex flex-col text-center justify-start items-center gap-[0.5em]
-                  w-full p-[0.5em]
+                  flex flex-col text-center justify-start items-center gap-[0.3em] sm:gap-[0.5em]
+                  w-full p-[0.3em] sm:p-[0.5em]
                   sm:text-left sm:flex-row
                   ${messageIndex === index ? 'bg-[#bdffbd]' : ''}
                 `}
@@ -132,12 +132,12 @@ export const TestimonialsWindow = ({
                       ? (
                         <img
                           src={headshot}
-                          className="w-[3em] h-[3em] min-w-[3em] pointer-events-none rounded-full object-cover"
+                          className="w-[2.5em] h-[2.5em] min-w-[2.5em] sm:w-[3em] sm:h-[3em] sm:min-w-[3em] pointer-events-none rounded-full object-cover"
                           alt="headshot"
                         />
                       )
                       : (
-                        <div className="w-[3em] h-[3em] relative rounded-full overflow-hidden">
+                        <div className="w-[2.5em] h-[2.5em] sm:w-[3em] sm:h-[3em] relative rounded-full overflow-hidden">
                           <Image
                             src={headshot}
                             className="object-cover rounded-full pointer-events-none"
@@ -149,7 +149,7 @@ export const TestimonialsWindow = ({
                       )}
 
                   </div>
-                  <div className="text-[0.75em] leading-[1]">
+                  <div className="text-[0.65em] sm:text-[0.75em] leading-[1]">
                     <h2 className="font-bold">
                       {shortName}
                     </h2>
