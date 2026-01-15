@@ -1,5 +1,5 @@
 import React, { useMemo, useRef } from 'react';
-import { shaderMaterial, useTexture } from '@react-three/drei';
+import { shaderMaterial } from '@react-three/drei';
 import { extend, ReactThreeFiber, useFrame } from '@react-three/fiber';
 import {
   Texture, ShaderMaterial, Clock, FrontSide, VideoTexture,
@@ -171,7 +171,59 @@ export const CoffeeVideoMaterial = ({ videoSrc, thumbSrc, active = true }:
 
   const randomSeed = useMemo(() => Math.random(), []);
 
-  const thumbTexture = useTexture(thumbSrc);
+  // Use a default placeholder thumbnail if the project-specific one doesn't exist
+  // Try to load project thumbnail, fallback to existing thumbnail or create a simple one
+  const [thumbTexture, setThumbTexture] = React.useState<Texture | null>(null);
+  const fallbackThumbSrc = '/videos/next-is-now-thumb.jpg'; // Use an existing thumbnail as fallback
+  
+  React.useEffect(() => {
+    let isMounted = true;
+    
+    // Try to load the project-specific thumbnail first
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    
+    const loadFallback = () => {
+      if (!isMounted) return;
+      const fallbackImg = new Image();
+      fallbackImg.crossOrigin = 'anonymous';
+      fallbackImg.onload = () => {
+        if (!isMounted) return;
+        const texture = new Texture(fallbackImg);
+        texture.needsUpdate = true;
+        setThumbTexture(texture);
+      };
+      fallbackImg.onerror = () => {
+        if (!isMounted) return;
+        // Create a simple colored texture as last resort
+        const canvas = document.createElement('canvas');
+        canvas.width = 256;
+        canvas.height = 256;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.fillStyle = '#1e3a8a';
+          ctx.fillRect(0, 0, 256, 256);
+          const texture = new Texture(canvas);
+          texture.needsUpdate = true;
+          setThumbTexture(texture);
+        }
+      };
+      fallbackImg.src = fallbackThumbSrc;
+    };
+    
+    img.onload = () => {
+      if (!isMounted) return;
+      const texture = new Texture(img);
+      texture.needsUpdate = true;
+      setThumbTexture(texture);
+    };
+    img.onerror = loadFallback;
+    img.src = thumbSrc;
+    
+    return () => {
+      isMounted = false;
+    };
+  }, [thumbSrc, fallbackThumbSrc]);
 
   // Due to some race case with requestVideoFrameCallback, paused videos are occasionally unrendered
   // So we prompt a rerender every so often jic.
@@ -194,7 +246,7 @@ export const CoffeeVideoMaterial = ({ videoSrc, thumbSrc, active = true }:
       unfreeze={0}
       seed={randomSeed}
       ref={materialRef}
-      thumb={thumbTexture}
+      thumb={thumbTexture || new Texture()}
       videoReady={0}
       time={0} // will be set in anim frame
       transparent
