@@ -142,10 +142,10 @@ export const CTA = () => {
         <a
           href={contactHref}
           className={`
-            block fixed top-0 left-0 text-[min(4vw,1.3rem)]  pr-[1rem] py-[1rem] font-mono tracking-wide pl-[0.5em]
+            hidden sm:block fixed top-0 left-0 text-[min(4vw,1.3rem)] pr-[1rem] py-[1rem] font-mono tracking-wide pl-[0.5em]
             ${showStats ? '' : 'z-[88888888]'}
             ${showCTAs ? '' : 'translate-y-[-200%]'} transition-all duration-300
-            ${hover ? 'scale-[1.3]' : ''}  origin-top-left
+            ${hover ? 'scale-[1.3]' : ''} origin-top-left
           `}
           style={{
             filter:
@@ -181,7 +181,7 @@ export const CTA = () => {
       </CustomCursorHover>
       <nav
         className={`
-          block fixed bottom-0 right-0 text-[min(4vw,1.3rem)]  pr-[1rem] py-[1rem] font-mono tracking-wide pl-[0.5em]
+          hidden sm:block fixed bottom-0 right-0 text-[min(4vw,1.3rem)] pr-[1rem] py-[1rem] font-mono tracking-wide pl-[0.5em]
           ${showCTAs ? '' : 'translate-y-[200%]'} transition-all duration-300
           z-[88888888]
           ${hover ? 'scale-[1.3]' : ''} origin-bottom-right
@@ -210,6 +210,28 @@ export const CTA = () => {
           </li>
         </ul>
       </nav>
+      {showCTAs && (
+        <div className="sm:hidden fixed bottom-[0.75rem] right-[0.75rem] z-[88888888]">
+          <a
+            href={contactHref}
+            className="w-12 h-12 rounded-full border-[2px] border-black grid place-items-center shadow-[0.2rem_0.2rem_0_#000]"
+            style={{
+              background: bgColor,
+              color: textColor,
+              stroke: textColor,
+            }}
+            onClick={() => {
+              event('cta', {
+                type: 'email',
+                location: 'mobile-fab',
+              });
+            }}
+            aria-label="Contact"
+          >
+            <MailIconSvg className="w-[1.5em] h-[1.25em]" />
+          </a>
+        </div>
+      )}
       {showBg && (
         <div
           className="top-0 left-0 fixed w-full h-full overflow-hidden z-[-1] text-[2vw] font-mono text-white break-all opacity-30"
