@@ -82,6 +82,8 @@ export function Notebook({ ...groupProps }:GroupProps) {
             sceneController.setScene('blog');
             router.push('/blog');
           }}
+          onFocus={() => {}}
+          onBlur={() => {}}
         />
       )}
       {notebookButtonEnabled && (scene === 'blog' || scene === 'blog-open') && (
@@ -96,6 +98,8 @@ export function Notebook({ ...groupProps }:GroupProps) {
             sceneController.setScene('menu');
             router.push('/');
           }}
+          onFocus={() => {}}
+          onBlur={() => {}}
         />
       )}
     </animated.group>
