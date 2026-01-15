@@ -128,9 +128,9 @@ export const BlogEntry = ({
       <animated.group position={animatedCubeFloatingOffset as any}>
         <ThreeButton
           scale={[0.5, 0.5, 0.5]}
-          onPointerEnter={somePostIsOpen || hasNoMouse ? undefined : () => setHovering(true)}
-          onPointerLeave={somePostIsOpen || hasNoMouse ? undefined : () => setHovering(false)}
-          onClick={somePostIsOpen ? undefined : () => {
+          onPointerEnter={somePostIsOpen || hasNoMouse ? () => {} : () => setHovering(true)}
+          onPointerLeave={somePostIsOpen || hasNoMouse ? () => {} : () => setHovering(false)}
+          onClick={somePostIsOpen ? () => {} : () => {
             setOpen(true);
             event('click_blog', { name: post?.title ?? 'unset' });
           }}
