@@ -11,27 +11,38 @@ const client = sanityClient({
   apiVersion: '2023-05-03',
 });
 
-async function importProjects() {
+async function importData() {
   try {
-    console.log('🚀 Starting project import...\n');
+    console.log('🚀 Starting data import...\n');
 
     // Read seed data
     const seedData = JSON.parse(fs.readFileSync(path.join(__dirname, 'seed-data.json'), 'utf8'));
-    const projects = seedData.projects;
+    
+    // Import projects
+    if (seedData.projects) {
+      console.log(`📦 Importing ${seedData.projects.length} projects...\n`);
+      for (const project of seedData.projects) {
+        try {
+          console.log(`   Importing project: ${project.title}`);
+          const result = await client.create(project);
+          console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
+        } catch (error) {
+          console.error(`   ❌ Failed to import ${project.title}:`, error.message, '\n');
+        }
+      }
+    }
 
-    console.log(`Found ${projects.length} projects to import\n`);
-
-    // Import each project
-    for (const project of projects) {
-      try {
-        console.log(`📦 Importing: ${project.title}`);
-        
-        // Create the document
-        const result = await client.create(project);
-        
-        console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
-      } catch (error) {
-        console.error(`   ❌ Failed to import ${project.title}:`, error.message, '\n');
+    // Import blog posts
+    if (seedData.posts) {
+      console.log(`📝 Importing ${seedData.posts.length} blog posts...\n`);
+      for (const post of seedData.posts) {
+        try {
+          console.log(`   Importing post: ${post.title}`);
+          const result = await client.create(post);
+          console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
+        } catch (error) {
+          console.error(`   ❌ Failed to import ${post.title}:`, error.message, '\n');
+        }
       }
     }
 
@@ -43,4 +54,4 @@ async function importProjects() {
 }
 
 // Run the import
-importProjects();
+importData();
