@@ -103,6 +103,20 @@ export function BlogListing({ active, posts, ...groupProps }:
             BLOG
           </Text>
         )}
+        {nPosts === 0 && active && (
+          <Text
+            fontSize={0.2}
+            color={colors.yellow}
+            position={[0, 0, 0.01]}
+            font={fontUrls.bryantBold}
+            anchorX="center"
+            anchorY="middle"
+          >
+            No blog posts yet.
+            {'\n'}
+            Check Sanity Studio to add posts.
+          </Text>
+        )}
         {posts?.map((post, index) => {
           const hovering = index === hoveredIndex;
           const open = index === openIndex;
