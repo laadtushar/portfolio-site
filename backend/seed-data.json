@@ -146,40 +146,6 @@
     },
     {
       "_type": "project",
-      "title": "Real Time Collaborative Whiteboard",
-      "shortTitle": "Collab Whiteboard",
-      "slug": {
-        "_type": "slug",
-        "current": "collaborative-whiteboard"
-      },
-      "subTitle": "Multi-user real-time drawing application",
-      "client": "Newcastle University",
-      "links": [
-        {
-          "_type": "link",
-          "text": "GitHub",
-          "url": "https://github.com/laadtushar/collaborative-whiteboard"
-        }
-      ],
-      "body": [
-        {
-          "_type": "block",
-          "style": "normal",
-          "children": [
-            {
-              "_type": "span",
-              "text": "A real-time collaborative whiteboard application allowing multiple users to draw, write, and collaborate simultaneously using WebSockets and Socket.IO for bidirectional communication."
-            }
-          ]
-        }
-      ],
-      "color1": {
-        "_type": "color",
-        "hex": "#10b981"
-      }
-    },
-    {
-      "_type": "project",
       "title": "XpenseLab",
       "shortTitle": "XpenseLab",
       "slug": {
@@ -210,40 +176,6 @@
       "color1": {
         "_type": "color",
         "hex": "#f59e0b"
-      }
-    },
-    {
-      "_type": "project",
-      "title": "Parivartan NGO Website",
-      "shortTitle": "Parivartan",
-      "slug": {
-        "_type": "slug",
-        "current": "parivartan-ngo"
-      },
-      "subTitle": "Non-profit organization website",
-      "client": "Parivartan NGO",
-      "links": [
-        {
-          "_type": "link",
-          "text": "Visit Site",
-          "url": "https://parivartan.org.in"
-        }
-      ],
-      "body": [
-        {
-          "_type": "block",
-          "style": "normal",
-          "children": [
-            {
-              "_type": "span",
-              "text": "Built a WordPress-based website for Parivartan NGO to showcase their work and facilitate online donations with responsive design for accessibility."
-            }
-          ]
-        }
-      ],
-      "color1": {
-        "_type": "color",
-        "hex": "#ef4444"
       }
     },
     {

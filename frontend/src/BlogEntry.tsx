@@ -11,7 +11,6 @@ import { RoundedBoxGeometry } from 'three-stdlib';
 import { MeshDistortMaterial } from '@react-three/drei';
 import { event } from 'nextjs-google-analytics';
 import { Post } from '../generatedSanitySchemaTypes';
-import { CoffeeVideoMaterial } from './CoffeeVideoMaterial';
 import { ThreeButton } from './ThreeButton';
 import colors from './colors';
 import { BlogHtmlModal } from './BlogHtmlModal';
@@ -33,6 +32,7 @@ const circle = Math.PI * 2;
 
 extend({ RoundedBoxGeometry });
 
+/* eslint-disable no-unused-vars */
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -40,6 +40,7 @@ declare global {
     }
   }
 }
+/* eslint-enable no-unused-vars */
 
 export const BlogEntry = ({
   post,

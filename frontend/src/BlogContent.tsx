@@ -4,10 +4,11 @@ import React, { ReactNode, useMemo } from 'react';
 import {
   PortableText, PortableTextBlockComponent, PortableTextMarkComponent, PortableTextTypeComponent,
 } from '@portabletext/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { TypedObject } from '@portabletext/types';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { ImageFigure, Post } from '../generatedSanitySchemaTypes';
 import { getSanityImageUrlFor } from './sanity/sanityImageBuilder';
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 const P = ({ children, className = '' }: { children: ReactNode; className?: string; }) => (<p className={`my-4 ${className}`}>{children}</p>);
 
