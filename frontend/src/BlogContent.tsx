@@ -4,8 +4,7 @@ import React, { ReactNode, useMemo } from 'react';
 import {
   PortableText,
   PortableTextBlockComponent,
-  PortableTextListComponent,
-  PortableTextListItemComponent,
+  PortableTextComponentProps,
   PortableTextMarkComponent,
   PortableTextTypeComponent,
 } from '@portabletext/react';
@@ -105,24 +104,24 @@ export const BlogBody = ({ post }: { post: Post; }) => useMemo(() => (
           normal: PBlock,
         },
         list: {
-          bullet: ({ children }: Parameters<PortableTextListComponent>[0]) => (
+          bullet: ({ children }: PortableTextComponentProps<any>) => (
             <ul className="list-disc list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">
               {children}
             </ul>
           ),
-          number: ({ children }: Parameters<PortableTextListComponent>[0]) => (
+          number: ({ children }: PortableTextComponentProps<any>) => (
             <ol className="list-decimal list-inside ml-3 sm:ml-4 text-sm sm:text-base text-black my-2 sm:my-3">
               {children}
             </ol>
           ),
         },
         listItem: {
-          bullet: ({ children }: Parameters<PortableTextListItemComponent>[0]) => (
+          bullet: ({ children }: PortableTextComponentProps<any>) => (
             <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">
               {children}
             </li>
           ),
-          number: ({ children }: Parameters<PortableTextListItemComponent>[0]) => (
+          number: ({ children }: PortableTextComponentProps<any>) => (
             <li className="my-1 sm:my-1.5 text-sm sm:text-base text-black">
               {children}
             </li>
