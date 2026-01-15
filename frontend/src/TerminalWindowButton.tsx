@@ -71,7 +71,7 @@ export const TerminalWindowButton = ({
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="group"
+        className="group pointer-events-auto"
       >
         <div
           {...buttonProps}
@@ -88,6 +88,7 @@ export const TerminalWindowButton = ({
       type="button"
       {...buttonProps}
       onClick={disabled ? () => { } : onClick}
+      className={`${buttonProps.className} pointer-events-auto`}
     >
       <InnerButtonContent disabled={disabled}>{children}</InnerButtonContent>
     </button>

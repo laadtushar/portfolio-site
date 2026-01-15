@@ -251,7 +251,7 @@ export const Slides = ({
             topColor="cyan"
             color="white"
           />
-          <div className="mt-[2em]">
+          <div className="mt-[2em] pointer-events-auto">
             <TerminalWindowButton
               onClick={() => {
                 setSlide('education');
@@ -263,7 +263,7 @@ export const Slides = ({
             >
               education?
             </TerminalWindowButton>
-          </div>
+</div>
         </div>
       )}
       {(slide === 'education') && (
@@ -285,7 +285,7 @@ export const Slides = ({
             topColor="violet"
             color="white"
           />
-          <div className="mt-[2em]">
+          <div className="mt-[2em] pointer-events-auto">
             <TerminalWindowButton
               onClick={() => {
                 setSlide('volunteer');
@@ -319,7 +319,7 @@ export const Slides = ({
             topColor="yellow"
             color="white"
           />
-          <div className="mt-[2em]">
+          <div className="mt-[2em] pointer-events-auto">
             <TerminalWindowButton
               onClick={() => {
                 setScene('menu');
