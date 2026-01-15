@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npm run seed:safe",
+    "seed:safe": "cd ../backend && npm install && npm run seed || echo 'Seed script failed, continuing deployment'",
     "start": "next start",
     "test": "env TS_NODE_PROJECT=\"tsconfig.testing.json\" mocha --require ts-node/register 'test/**/*.ts'",
     "lint": "next lint"

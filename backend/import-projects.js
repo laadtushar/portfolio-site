@@ -91,7 +91,7 @@ console.log(`🔑 Token: ${token ? `${token.substring(0, 10)}...` : 'NOT SET'}\n
 
 async function importData() {
   try {
-    console.log('🚀 Starting data import...\n');
+    console.log('🚀 Starting data import (upsert mode - no duplicates)...\n');
 
     // Read seed data
     const seedData = JSON.parse(fs.readFileSync(path.join(__dirname, 'seed-data.json'), 'utf8'));
@@ -103,10 +103,33 @@ async function importData() {
       console.log(`👤 Importing ${seedData.authors.length} authors...\n`);
       for (const author of seedData.authors) {
         try {
-          console.log(`   Importing author: ${author.name}`);
-          const result = await client.create(author);
-          authorId = result._id;
-          console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
+          console.log(`   Checking author: ${author.name}`);
+          
+          // Check if author exists by name (since email might not be set)
+          const existingAuthor = await client.fetch(
+            '*[_type == "author" && name == $name][0]',
+            { name: author.name }
+          );
+
+          if (existingAuthor) {
+            // Update existing author
+            const result = await client
+              .patch(existingAuthor._id)
+              .set({
+                name: author.name,
+                slug: author.slug,
+                email: author.email,
+                bio: author.bio,
+              })
+              .commit();
+            authorId = result._id;
+            console.log(`   ✅ Updated author with ID: ${result._id}\n`);
+          } else {
+            // Create new author
+            const result = await client.create(author);
+            authorId = result._id;
+            console.log(`   ✅ Created author with ID: ${result._id}\n`);
+          }
         } catch (error) {
           console.error(`   ❌ Failed to import ${author.name}:`, error.message, '\n');
         }
@@ -118,9 +141,38 @@ async function importData() {
       console.log(`📦 Importing ${seedData.projects.length} projects...\n`);
       for (const project of seedData.projects) {
         try {
-          console.log(`   Importing project: ${project.title}`);
-          const result = await client.create(project);
-          console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
+          console.log(`   Checking project: ${project.title}`);
+          
+          // Check if project exists by slug
+          const existingProject = await client.fetch(
+            '*[_type == "project" && slug.current == $slug][0]',
+            { slug: project.slug.current }
+          );
+
+          if (existingProject) {
+            // Update existing project
+            const result = await client
+              .patch(existingProject._id)
+              .set({
+                title: project.title,
+                slug: project.slug,
+                description: project.description,
+                mainImage: project.mainImage,
+                videoFigure: project.videoFigure,
+                technologies: project.technologies,
+                links: project.links,
+                body: project.body,
+                color1: project.color1,
+                color2: project.color2,
+                publishedAt: project.publishedAt,
+              })
+              .commit();
+            console.log(`   ✅ Updated project with ID: ${result._id}\n`);
+          } else {
+            // Create new project
+            const result = await client.create(project);
+            console.log(`   ✅ Created project with ID: ${result._id}\n`);
+          }
         } catch (error) {
           console.error(`   ❌ Failed to import ${project.title}:`, error.message, '\n');
         }
@@ -132,23 +184,49 @@ async function importData() {
       console.log(`📝 Importing ${seedData.posts.length} blog posts...\n`);
       for (const post of seedData.posts) {
         try {
-          // Add author reference if we created one
-          if (authorId && !post.author) {
-            post.author = {
+          console.log(`   Checking post: ${post.title}`);
+          
+          // Check if post exists by slug
+          const existingPost = await client.fetch(
+            '*[_type == "post" && slug.current == $slug][0]',
+            { slug: post.slug.current }
+          );
+
+          // Add author reference if we have one
+          const postData = { ...post };
+          if (authorId && !postData.author) {
+            postData.author = {
               _type: 'reference',
               _ref: authorId
             };
           }
-          console.log(`   Importing post: ${post.title}`);
-          const result = await client.create(post);
-          console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
+
+          if (existingPost) {
+            // Update existing post
+            const result = await client
+              .patch(existingPost._id)
+              .set({
+                title: postData.title,
+                slug: postData.slug,
+                body: postData.body,
+                linkedinUrl: postData.linkedinUrl,
+                publishedAt: postData.publishedAt,
+                author: postData.author,
+              })
+              .commit();
+            console.log(`   ✅ Updated post with ID: ${result._id}\n`);
+          } else {
+            // Create new post
+            const result = await client.create(postData);
+            console.log(`   ✅ Created post with ID: ${result._id}\n`);
+          }
         } catch (error) {
           console.error(`   ❌ Failed to import ${post.title}:`, error.message, '\n');
         }
       }
     }
 
-    console.log('✨ Import complete!');
+    console.log('✨ Import complete! (No duplicates created)');
   } catch (error) {
     console.error('❌ Import failed:', error.message);
     process.exit(1);
