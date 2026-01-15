@@ -98,7 +98,7 @@ export function BlogListing({ active, posts, ...groupProps }:
             fontSize={0.3}
             color={colors.yellow}
             position={[0, 1.5, 0.01]}
-            font={fontUrls.boldItalic}
+            font={fontUrls.bryantBold}
           >
             BLOG
           </Text>
@@ -132,7 +132,7 @@ export function BlogListing({ active, posts, ...groupProps }:
       {currentPost && (
         <mesh position={[0, 1, -1]}>
           <planeGeometry args={[30, 30]} />
-          <BackgroundColorMaterial transparent opacity={0.5} />
+          <BackgroundColorMaterial opacity project={null} />
         </mesh>
       )}
     </group>

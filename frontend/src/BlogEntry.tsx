@@ -75,7 +75,7 @@ export const BlogEntry = ({
     setCubeFloatingOffset(getRandomCubeOffset());
   }, directionInterval);
 
-  const cubeRef = useRef<Mesh>();
+  const cubeRef = useRef<Mesh>(null);
   const rotationSpeeds = useRef({
     x: (Math.random() * 2 - 1) * ROTATION_MAX_SPEED,
     y: (Math.random() * 2 - 1) * ROTATION_MAX_SPEED,
