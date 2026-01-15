@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import React, {
-  useRef, useState,
+  useRef, useState, useEffect,
 } from 'react';
 import { MathUtils, PerspectiveCamera } from 'three';
 import { useEventListener, useWindowSize } from 'usehooks-ts';
@@ -342,13 +342,37 @@ export const Slides = ({
 export function ComputerTerminal() {
   const { scene, setScene } = useSceneController();
 
-  const [slide, _setSlide] = useState<SlideName>('intro');
+  // Read slide from URL parameter on mount
+  const getInitialSlide = (): SlideName => {
+    if (typeof window === 'undefined') return 'intro';
+    const params = new URLSearchParams(window.location.search);
+    const slideParam = params.get('slide');
+    const validSlides: SlideName[] = ['intro', 'mission', 'testimonials', 'skills', 'experience', 'education', 'volunteer'];
+    if (slideParam && validSlides.includes(slideParam as SlideName)) {
+      return slideParam as SlideName;
+    }
+    return 'intro';
+  };
+
+  const [slide, _setSlide] = useState<SlideName>(getInitialSlide());
   const setSlide = (name: SlideName) => {
     event('about-slide', {
       slide: name,
     });
     _setSlide(name);
   };
+
+  // Update slide when URL changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const slideParam = params.get('slide');
+      const validSlides: SlideName[] = ['intro', 'mission', 'testimonials', 'skills', 'experience', 'education', 'volunteer'];
+      if (slideParam && validSlides.includes(slideParam as SlideName)) {
+        _setSlide(slideParam as SlideName);
+      }
+    }
+  }, []);
 
   // We cant use drei/HTML transform property to manage the size of this div
   // Why? Because a close camera will scale it up so much

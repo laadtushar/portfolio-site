@@ -5,6 +5,8 @@ import { CameraController } from './CameraController';
 import { BackgroundScribbles } from './BackgroundScribbles';
 import { Computer } from './Computer';
 import { CoffeeCup } from './CoffeeCup';
+import { ExperienceCup } from './ExperienceCup';
+import { SkillsCup } from './SkillsCup';
 import { CoordArray } from './CoordArray';
 import { useSceneController } from './SceneController';
 import { Notebook } from './Notebook';
@@ -34,6 +36,8 @@ export function SceneDirector({
 
   const showCoffeeCup = scene !== 'intro' && scene !== 'start';
   const showNotebook = scene !== 'intro' && scene !== 'start';
+  const showExperienceCup = scene !== 'intro' && scene !== 'start';
+  const showSkillsCup = scene !== 'intro' && scene !== 'start';
 
   const projectListingPosition = [0, breakpoints.projects ? -12 : -11, 1];
   const blogListingPosition = [0, breakpoints.projects ? 12 : 11, 1];
@@ -137,6 +141,8 @@ export function SceneDirector({
       <Computer />
       {showCoffeeCup && <CoffeeCup />}
       {showNotebook && <Notebook />}
+      {showExperienceCup && <ExperienceCup />}
+      {showSkillsCup && <SkillsCup />}
       <ProjectListing
         projects={projects}
         position={projectListingPosition as CoordArray}
