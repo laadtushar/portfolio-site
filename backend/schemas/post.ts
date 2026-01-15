@@ -46,6 +46,12 @@ export default {
       type: "datetime",
     },
     {
+      name: "linkedinUrl",
+      title: "LinkedIn URL",
+      type: "url",
+      description: "Link to the original LinkedIn Pulse article",
+    },
+    {
       name: "body",
       title: "Body",
       type: "blockContent",

@@ -92,6 +92,13 @@ export interface Post extends SanityDocument {
   publishedAt?: string;
 
   /**
+   * LinkedIn URL — `url`
+   *
+   * Link to the original LinkedIn Pulse article
+   */
+  linkedinUrl?: string;
+
+  /**
    * Body — `blockContent`
    *
    *
