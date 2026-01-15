@@ -228,7 +228,7 @@ export const ProjectCTA = ({ slug }:{slug:string}) => (
         });
       }}
     >
-      hello @ bryantcodes.art
+      hello @ tusharlaad.com
 
     </ExternalLink>
   </div>

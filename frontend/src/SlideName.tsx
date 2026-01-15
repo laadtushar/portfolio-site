@@ -1,1 +1,1 @@
-export type SlideName = 'intro' | 'mission' | 'testimonials' | 'skills' | 'experience';
+export type SlideName = 'intro' | 'mission' | 'testimonials' | 'skills' | 'experience' | 'education' | 'volunteer';

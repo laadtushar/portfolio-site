@@ -181,7 +181,7 @@ export const CTA = () => {
                 <span className="text-[0.7em]">&nbsp;</span>
                 <span>@</span>
                 <span className="text-[0.7em]">&nbsp;</span>
-                bryantcodes.art
+                tusharlaad.com
               </span>
             )}
           </span>

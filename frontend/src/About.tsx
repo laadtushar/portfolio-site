@@ -18,6 +18,8 @@ import { TextWindow } from './TextWindow';
 import { TerminalButton } from './TerminalButton';
 import { TestimonialsWindow } from './TestimonialsWindow';
 import { ExperienceWindow } from './ExperienceWindow';
+import { EducationWindow } from './EducationWindow';
+import { VolunteerWindow } from './VolunteerWindow';
 import colors from './colors';
 // import { AwardsWindow } from './AwardsWindow';
 import { TerminalWindowButton } from './TerminalWindowButton';
@@ -69,7 +71,7 @@ export const Slides = ({
 
   return (
     <>
-      {(slide === 'mission' || slide === 'testimonials' || slide === 'skills' || slide === 'experience') && (
+      {(slide === 'mission' || slide === 'testimonials' || slide === 'skills' || slide === 'experience' || slide === 'education' || slide === 'volunteer') && (
         <div
           className={`
           grid h-full
@@ -123,7 +125,7 @@ export const Slides = ({
           />
         </div>
       )}
-      {(slide === 'testimonials' || slide === 'skills' || slide === 'experience') && (
+      {(slide === 'testimonials' || slide === 'skills' || slide === 'experience' || slide === 'education' || slide === 'volunteer') && (
       <div
         className={`
           absolute top-0 left-0 w-full h-full
@@ -252,13 +254,81 @@ export const Slides = ({
           <div className="mt-[2em]">
             <TerminalWindowButton
               onClick={() => {
+                setSlide('education');
+              }}
+              delay={1000}
+              color="black"
+              bgColor="lime"
+              disabled={slide !== 'experience'}
+            >
+              education?
+            </TerminalWindowButton>
+          </div>
+        </div>
+      )}
+      {(slide === 'education') && (
+        <div
+          className={`
+          absolute top-0 left-0 w-full h-full
+          grid place-items-center
+          pointer-events-none
+          p-[2em]
+        `}
+        >
+          <EducationWindow
+            className={`
+              w-full max-w-[50em] max-h-[90%] overflow-y-auto
+              ${breakpoint ? '' : 'max-w-[90%]'}
+            `}
+            title="EDUCATION.log"
+            delay={500}
+            topColor="violet"
+            color="white"
+          />
+          <div className="mt-[2em]">
+            <TerminalWindowButton
+              onClick={() => {
+                setSlide('volunteer');
+              }}
+              delay={1000}
+              color="black"
+              bgColor="yellow"
+              disabled={slide !== 'education'}
+            >
+              volunteer work?
+            </TerminalWindowButton>
+          </div>
+        </div>
+      )}
+      {(slide === 'volunteer') && (
+        <div
+          className={`
+          absolute top-0 left-0 w-full h-full
+          grid place-items-center
+          pointer-events-none
+          p-[2em]
+        `}
+        >
+          <VolunteerWindow
+            className={`
+              w-full max-w-[50em] max-h-[90%] overflow-y-auto
+              ${breakpoint ? '' : 'max-w-[90%]'}
+            `}
+            title="VOLUNTEER.log"
+            delay={500}
+            topColor="yellow"
+            color="white"
+          />
+          <div className="mt-[2em]">
+            <TerminalWindowButton
+              onClick={() => {
                 setScene('menu');
                 setSlide('intro');
               }}
               delay={1000}
               color="black"
               bgColor="lime"
-              disabled={slide !== 'experience'}
+              disabled={slide !== 'volunteer'}
             >
               back to menu
             </TerminalWindowButton>

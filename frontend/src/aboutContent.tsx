@@ -15,7 +15,7 @@ export const aboutContent = {
   testimonials: [
     {
       quote:
-        "Tushar's exceptional work ethic and collaborative spirit make him invaluable. His strategic thinking during our end-to-end encryption project significantly enhanced our security architecture.",
+        "Having had the pleasure of working with Tushar, I can attest to his exceptional work ethic, collaborative spirit, and outstanding performance. His commitment to excellence is evident in the meticulous attention to detail and unwavering determination he brings to every task. What truly sets Tushar apart is his exceptional teamwork and interpersonal skills. Tushar is a unifying presence in our team, always ready to lend a hand, share knowledge, and support their colleagues. Their collaborative approach fosters a productive and positive work environment, making him an invaluable member of our team. One standout moment that exemplifies Tushar's technical acumen and innovative thinking occurred during a critical phase of our chat system project. We were faced with the complex challenge of implementing end-to-end encryption, particularly how to securely store and manage encryption keys. He devised an elegant solution that balanced security with usability: storing public keys on our servers while keeping private keys on users' local devices. This approach not only fortified our system's security but also introduced an additional layer of protection, requiring users to authenticate with their private keys upon logging in from any device. Tushar's strategic thinking and technical expertise were instrumental in overcoming this hurdle, significantly enhancing our project's security architecture. His openness to feedback and constructive dialogue has not only contributed to their personal growth but has also inspired our team to strive for continuous improvement.",
       shortName: 'Suleiman',
       name: 'Suleiman Muhammad Sabo',
       headshot: suleimanImage,
@@ -23,7 +23,7 @@ export const aboutContent = {
     },
     {
       quote:
-        "Tushar is an excellent developer and data engineer with extensive experience in data scraping, mining, analytics and ML. Very proactive in taking up problems and coming up with novel solutions.",
+        "Tushar is an excellent developer and data engineer with extensive experience in data scraping, data mining, data labeling, data analytics and ML. He is also Extremely proficient in web development. He is a very quick learner and has gained a lot of experience in database management over the last year ranging from CRUD operations on the database to advanced SP creations. His job profile has also ensured his proficiency in integrating python based programs with SQL databases. He has also gained experience in API development and deployment using Docker over the last couple of months. He is very cooperative and easy to work with. Very proactive in taking up problems and coming up with novel solutions for them. Extremely hardworking with an exceptional work ethic.",
       name: 'Pranjal Upadhyaya',
       shortName: 'Pranjal',
       title: [
@@ -33,7 +33,7 @@ export const aboutContent = {
     },
     {
       quote:
-        "Hats off to Tushar. He is as committed as one can be. Technical side: built APIs, followed best practices, used Github Co-pilot, enforced good documentation. He has the inherent curiosity to solve problems.",
+        "Hats off to Tushar. He is quite young (as far age is concerned). There are two reasons why you should be hiring him: Non-technical side: He is as committed as one can be. Deadlines, responsibilities, commitment on deliveries: he would do a realistic job of it and deliver. Technical side: his resume speaks for itself. he started as a website developer (wordpress), took on data engineer role, built APIs for us (with team leader involved). He performed beautifully. Followed best practices of coding, used Github Co-pilot, conducted trainings for his team members. Enforced good documentation practices. I am sure there is more he has done. Srujan Patil from our team will be able to share more. He has worked with him a lot as well. For some part, he was reporting to Srujan directly. To summarize, Tushar has the inherent interest, curiosity to solve problems, do good for the company. I would like to share the incident when we assigned him first labeling/machine learning project. He came back not only with solution but alternative approaches, pros and cons and all documented well. Please do not hire him because we would like to hire him back when he graduates. Just kidding, folks.",
       name: 'Vinay Mehendi, PhD',
       shortName: 'Vinay',
       title: ['CEO - Chief Frog at OceanFrogs Software'],
@@ -41,7 +41,7 @@ export const aboutContent = {
     },
     {
       quote:
-        "Tushar is a hardworking, passionate engineer with excellent skills at building Data Pipelines, REST APIs, and Docker. Always eager to learn new tools and frameworks.",
+        "I worked with Tushar for over a year at OceanFrogs, where we collaborated on several data engineering projects. Tushar is a hardworking, passionate engineer. He has excellent skills at building Data Pipelines, REST APIs, and Docker. He is always eager to learn new tools and frameworks and has a knack at experimenting. Tushar is also a great team player who communicates effectively and shares knowledge generously. I highly recommend Tushar, as he would be a valuable asset to any organization.",
       name: 'Srujan P',
       shortName: 'Srujan',
       title: ['Product & Engineering Manager at OceanFrogs'],
