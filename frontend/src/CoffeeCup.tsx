@@ -7,7 +7,6 @@ import {
   // easings,
   useSpring,
 } from '@react-spring/three';
-import { useRouter } from 'next/router';
 // import { useControls } from 'leva';
 // import { useControls } from 'leva';
 import { Scribble } from './Scribble';
@@ -27,7 +26,6 @@ import { useBreakpoints } from './useBreakpoints';
 
 export function CoffeeCup() {
   const breakpoints = useBreakpoints();
-  const router = useRouter();
 
   let time = 450;
   const projectButtonVisible1 = useTrueAfterDelay(time += 1000);
@@ -145,7 +143,9 @@ export function CoffeeCup() {
         cursor="spill"
         onClick={() => {
           sceneController.setScene('projects');
-          router.push('/projects');
+          if (typeof window !== 'undefined') {
+            window.location.href = '/projects';
+          }
         }}
       />
       )}
@@ -161,7 +161,9 @@ export function CoffeeCup() {
         cursor="unspill"
         onClick={() => {
           sceneController.setScene('menu');
-          router.push('/');
+          if (typeof window !== 'undefined') {
+            window.location.href = '/';
+          }
         }}
       />
       )}

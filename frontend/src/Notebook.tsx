@@ -3,7 +3,6 @@ import { animated, config } from '@react-spring/three';
 import { Color } from 'three';
 import { Text } from '@react-three/drei';
 import { GroupProps } from '@react-three/fiber';
-import { useRouter } from 'next/router';
 import bookFillPoints from './lines/bookFill';
 import bookLinesPoints from './lines/bookLines';
 // import bookHighlightPoints from './lines/bookHighlight';
@@ -22,7 +21,6 @@ export function Notebook({ ...groupProps }:GroupProps) {
   const fillVisible = useTrueAfterDelay(time += 500);
   const notebookButtonEnabled = useTrueAfterDelay(time += 1000);
 
-  const router = useRouter();
   const sceneController = useSceneController();
   const { scene } = sceneController;
 
@@ -80,7 +78,9 @@ export function Notebook({ ...groupProps }:GroupProps) {
           cursor="open-blog"
           onClick={() => {
             sceneController.setScene('blog');
-            router.push('/blog');
+            if (typeof window !== 'undefined') {
+              window.location.href = '/blog';
+            }
           }}
           onFocus={() => {}}
           onBlur={() => {}}
@@ -96,7 +96,9 @@ export function Notebook({ ...groupProps }:GroupProps) {
           cursor="close-blog"
           onClick={() => {
             sceneController.setScene('menu');
-            router.push('/');
+            if (typeof window !== 'undefined') {
+              window.location.href = '/';
+            }
           }}
           onFocus={() => {}}
           onBlur={() => {}}
