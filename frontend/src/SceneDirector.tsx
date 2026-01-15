@@ -10,7 +10,7 @@ import { Notebook } from './Notebook';
 // import { routerLog } from './loggers';
 import { SiteData } from './SiteData';
 import { ProjectListing } from './ProjectListing';
-import { BlogListing } from './BlogListing';
+import { BlogGrid } from './BlogGrid';
 import { useBreakpoints } from './useBreakpoints';
 // import { useClearHover } from './CustomCursor';
 
@@ -139,7 +139,7 @@ export function SceneDirector({
         position={projectListingPosition as CoordArray}
         active={scene === 'projects' || scene === 'project-open'}
       />
-      <BlogListing
+      <BlogGrid
         posts={posts}
         position={blogListingPosition as CoordArray}
         active={scene === 'blog' || scene === 'blog-open'}
