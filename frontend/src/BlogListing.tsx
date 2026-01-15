@@ -117,7 +117,7 @@ export function BlogListing({ active, posts, ...groupProps }:
             Check Sanity Studio to add posts.
           </Text>
         )}
-        {posts?.map((post, index) => {
+        {active && posts?.map((post, index) => {
           const hovering = index === hoveredIndex;
           const open = index === openIndex;
           const angle = arcPerPost * index - (Math.PI / 2);
