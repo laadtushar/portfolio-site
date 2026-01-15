@@ -3,6 +3,7 @@ import { Html } from '@react-three/drei';
 import { GroupProps } from '@react-three/fiber';
 import { Post } from '../generatedSanitySchemaTypes';
 import { BlogDetailView } from './BlogDetailView';
+import { useSceneController } from './SceneController';
 import colors from './colors';
 
 interface BlogCardProps {
@@ -58,7 +59,7 @@ function BlogCard({ post, onClick }: BlogCardProps) {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="cursor-pointer p-6 border-[3px] border-black transition-all duration-300 font-mono"
+      className="cursor-pointer p-3 sm:p-4 md:p-6 border-[3px] border-black transition-all duration-300 font-mono"
       style={{
         backgroundColor: isHovered ? colors.yellow : colors.white,
         boxShadow: isHovered ? '-0.3em -0.3em black' : '-0.15em -0.15em black',
@@ -67,7 +68,7 @@ function BlogCard({ post, onClick }: BlogCardProps) {
     >
       {/* Title */}
       <h2 
-        className="font-mono font-bold text-xl mb-3 line-clamp-2"
+        className="font-mono font-bold text-base sm:text-lg md:text-xl mb-2 sm:mb-3 line-clamp-2"
         style={{ 
           color: colors.black,
         }}
@@ -77,7 +78,7 @@ function BlogCard({ post, onClick }: BlogCardProps) {
 
       {/* Date */}
       <p 
-        className="font-mono text-xs mb-3"
+        className="font-mono text-xs mb-2 sm:mb-3"
         style={{ color: colors.black, opacity: 0.7 }}
       >
         📅 {publishedDate}
@@ -125,6 +126,7 @@ function BlogCard({ post, onClick }: BlogCardProps) {
 export function BlogGrid({ active, posts, ...groupProps }:
   { active:boolean, posts: Post[] | null; } & GroupProps) {
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const { setScene } = useSceneController();
 
   if (!active) return null;
 
@@ -153,36 +155,49 @@ export function BlogGrid({ active, posts, ...groupProps }:
         }}
       >
         <div 
-          className="border-[3px] border-black p-8 font-mono"
+          className="border-[3px] border-black p-4 sm:p-6 md:p-8 font-mono overflow-y-auto"
           style={{
             backgroundColor: colors.cyan,
             boxShadow: '-0.3em -0.3em black',
+            maxHeight: '85vh',
           }}
         >
           {/* Header */}
-          <div className="mb-8 text-center">
+          <div className="mb-4 sm:mb-6 md:mb-8 text-center">
             <h1 
-              className="font-mono text-4xl font-bold mb-2"
+              className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold mb-2"
               style={{ color: colors.black }}
             >
               📝 BLOG.exe
             </h1>
-            <p className="text-black/80 font-mono text-sm">
+            <p className="text-black/80 font-mono text-xs sm:text-sm mb-3">
               Thoughts on data engineering, innovation & tech
             </p>
+            {/* Back Button */}
+            <button
+              type="button"
+              onClick={() => setScene('menu')}
+              className="border-[2px] border-black px-3 sm:px-4 py-2 font-bold text-xs sm:text-sm transition-all hover:scale-105 active:scale-95"
+              style={{
+                backgroundColor: colors.white,
+                color: colors.black,
+              }}
+            >
+              ← BACK TO MENU
+            </button>
           </div>
 
           {/* Blog Grid */}
           {(!posts || posts.length === 0) ? (
-            <div className="text-center py-12">
-              <p className="text-white/50 font-mono text-lg">
+            <div className="text-center py-8 sm:py-12">
+              <p className="text-white/50 font-mono text-sm sm:text-base md:text-lg">
                 No blog posts yet.
                 <br />
                 Check Sanity Studio to add posts.
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {posts.map((post) => (
                 <BlogCard
                   key={post?.slug?.current ?? post?._id}
@@ -192,24 +207,6 @@ export function BlogGrid({ active, posts, ...groupProps }:
               ))}
             </div>
           )}
-
-          {/* Back Button */}
-          <div className="mt-8 text-center">
-            <button
-              type="button"
-              onClick={() => {
-                // This will be handled by the Notebook component
-                // Just provide a visual back button
-              }}
-              className="font-mono text-sm px-6 py-2 border-[2px] border-black transition-all hover:scale-105 active:scale-95"
-              style={{
-                backgroundColor: colors.black,
-                color: colors.cyan,
-              }}
-            >
-              ← BACK TO MENU
-            </button>
-          </div>
         </div>
       </Html>
     </group>
