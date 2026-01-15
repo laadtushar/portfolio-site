@@ -56,64 +56,62 @@ const experiences: Experience[] = [
 
 export const ExperienceWindow = ({
   ...terminalWindowProps
-}: Omit<TerminalWindowProps, 'children'>) => {
-  return (
-    <TerminalWindow {...terminalWindowProps}>
-      <div className="p-[1em] text-[0.9em]">
-        <div className="space-y-[2em]">
-          {experiences.map((exp, index) => (
-            <div
-              key={exp.company}
-              className="relative pl-[2em] border-l-[3px] border-cyan"
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-[-0.6em] top-[0.3em] w-[1em] h-[1em] bg-cyan rounded-full border-[3px] border-black" />
-              
-              {/* Current badge */}
-              {exp.current && (
-                <div className="inline-block bg-lime text-black px-[0.5em] py-[0.2em] text-[0.8em] font-bold mb-[0.5em]">
-                  CURRENT
-                </div>
-              )}
-              
-              {/* Company & Role */}
-              <div className="font-bold text-[1.1em] leading-tight">
-                <Typewriter delay={index * 200} timePerChar={1}>
-                  {exp.role}
-                </Typewriter>
+}: Omit<TerminalWindowProps, 'children'>) => (
+  <TerminalWindow {...terminalWindowProps}>
+    <div className="p-[1em] text-[0.9em]">
+      <div className="space-y-[2em]">
+        {experiences.map((exp, index) => (
+          <div
+            key={exp.company}
+            className="relative pl-[2em] border-l-[3px] border-cyan"
+          >
+            {/* Timeline dot */}
+            <div className="absolute left-[-0.6em] top-[0.3em] w-[1em] h-[1em] bg-cyan rounded-full border-[3px] border-black" />
+
+            {/* Current badge */}
+            {exp.current && (
+              <div className="inline-block bg-lime text-black px-[0.5em] py-[0.2em] text-[0.8em] font-bold mb-[0.5em]">
+                CURRENT
               </div>
-              <div className="text-cyan font-bold mt-[0.3em]">
-                {exp.company}
-              </div>
-              <div className="text-[0.85em] opacity-80 mt-[0.2em]">
-                {exp.duration} • {exp.location}
-              </div>
-              
-              {/* Highlights */}
-              <ul className="mt-[0.8em] space-y-[0.3em] text-[0.9em]">
-                {exp.highlights.map((highlight, i) => (
-                  <li key={i} className="flex gap-[0.5em]">
-                    <span className="text-lime">▸</span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              {/* Technologies */}
-              <div className="mt-[0.8em] flex flex-wrap gap-[0.4em]">
-                {exp.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-violet text-black px-[0.5em] py-[0.1em] text-[0.75em] font-mono"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            )}
+
+            {/* Company & Role */}
+            <div className="font-bold text-[1.1em] leading-tight">
+              <Typewriter delay={index * 200} timePerChar={1}>
+                {exp.role}
+              </Typewriter>
             </div>
-          ))}
-        </div>
+            <div className="text-cyan font-bold mt-[0.3em]">
+              {exp.company}
+            </div>
+            <div className="text-[0.85em] opacity-80 mt-[0.2em]">
+              {exp.duration} • {exp.location}
+            </div>
+
+            {/* Highlights */}
+            <ul className="mt-[0.8em] space-y-[0.3em] text-[0.9em]">
+              {exp.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-[0.5em]">
+                  <span className="text-lime">▸</span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Technologies */}
+            <div className="mt-[0.8em] flex flex-wrap gap-[0.4em]">
+              {exp.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="bg-violet text-black px-[0.5em] py-[0.1em] text-[0.75em] font-mono"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    </TerminalWindow>
-  );
-};
+    </div>
+  </TerminalWindow>
+);

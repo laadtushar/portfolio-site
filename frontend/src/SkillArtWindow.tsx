@@ -547,7 +547,7 @@ const useAddDrawFill = (
 };
 
 export const SkillArtWindow = ({
-  setScene,
+  setScene: _setScene,
   setSlide,
   ...terminalWindowProps
 }: {

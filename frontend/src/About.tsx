@@ -118,8 +118,8 @@ export const Slides = ({
             transition-transform duration-[1s]
             ${slide === 'mission' ? '' : 'translate-x-[20%] translate-y-[70%]'}
           `}
-          srcs={[selfPortraitImage]}
-          alts={['Professional headshot placeholder.']}
+            srcs={[selfPortraitImage]}
+            alts={['Professional headshot placeholder.']}
           />
         </div>
       )}
