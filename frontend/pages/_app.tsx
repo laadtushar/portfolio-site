@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const siteData:SiteData = {
     startingScene: pageProps.scene ?? 'error',
     projects: pageProps.projects ?? null,
+    posts: pageProps.posts ?? null,
   };
 
   useConsoleLogDevSignature();

@@ -15,11 +15,13 @@ interface Props {
 
 export const getStaticProps:GetStaticProps<Props, Params> = async (context) => {
   const projects = await authorizedSanityExperimentalTypesafeClient.getAll('project');
+  const posts = await authorizedSanityExperimentalTypesafeClient.getAll('post');
   const { scene } = context.params ?? { scene: 'error' };
 
   return {
     props: {
       projects,
+      posts,
       scene,
     },
   };

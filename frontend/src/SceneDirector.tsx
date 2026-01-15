@@ -11,6 +11,7 @@ import { Notebook } from './Notebook';
 // import { routerLog } from './loggers';
 import { SiteData } from './SiteData';
 import { ProjectListing } from './ProjectListing';
+import { BlogListing } from './BlogListing';
 import { useBreakpoints } from './useBreakpoints';
 // import { useClearHover } from './CustomCursor';
 
@@ -20,7 +21,7 @@ export function SceneDirector({
 {
   siteData:SiteData,
 }) {
-  const { startingScene, projects } = siteData;
+  const { startingScene, projects, posts } = siteData;
 
   const { scene, setScene } = useSceneController();
   useEffect(() => {
@@ -35,6 +36,7 @@ export function SceneDirector({
   const showNotebook = scene !== 'intro' && scene !== 'start';
 
   const projectListingPosition = [0, breakpoints.projects ? -12 : -11, 1];
+  const blogListingPosition = [0, breakpoints.projects ? 12 : 11, 1];
 
   let stagePosition = [-1, 0, 3];
   let stageSize = [15, 15];
@@ -77,6 +79,30 @@ export function SceneDirector({
       stageSize = [2, 0.1];
     }
   }
+  if (scene === 'blog') {
+    stagePosition = [0, 10, 3];
+    stageSize = [6, 10];
+    if (breakpoints.projects) {
+      stagePosition = [0.5, 12, 3];
+      stageSize = [8.5, 6.5];
+    }
+  }
+  if (scene === 'blog-open') {
+    stagePosition = [
+      blogListingPosition[0],
+      blogListingPosition[1] - 1.0,
+      blogListingPosition[2] + 4.5,
+    ];
+    stageSize = [0.1, 2.8];
+    if (breakpoints.projectOpen) {
+      stagePosition = [
+        blogListingPosition[0] - 0.6,
+        blogListingPosition[1],
+        blogListingPosition[2] + 4.5,
+      ];
+      stageSize = [2, 0.1];
+    }
+  }
   if (scene === 'about') {
     stageSize = [1, 1];
     stagePosition = [-1, 0.75, 2.1];
@@ -105,7 +131,7 @@ export function SceneDirector({
         stagePosition={stagePosition as CoordArray}
         stageSize={stageSize as [number, number]}
         // debug
-        controllable={scene !== 'project-open' && scene !== 'about'}
+        controllable={scene !== 'project-open' && scene !== 'blog-open' && scene !== 'about'}
       />
       <BackgroundScribbles />
       <Computer />
@@ -115,6 +141,11 @@ export function SceneDirector({
         projects={projects}
         position={projectListingPosition as CoordArray}
         active={scene === 'projects' || scene === 'project-open'}
+      />
+      <BlogListing
+        posts={posts}
+        position={blogListingPosition as CoordArray}
+        active={scene === 'blog' || scene === 'blog-open'}
       />
     </>
   );

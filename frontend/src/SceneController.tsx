@@ -10,6 +10,8 @@ export const sceneNames = [
   'menu',
   'projects',
   'project-open',
+  'blog',
+  'blog-open',
   'error',
   'about',
 ] as const;

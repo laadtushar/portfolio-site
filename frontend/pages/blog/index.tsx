@@ -1,4 +1,3 @@
-// import React from 'react';
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { SceneName } from '../../src/SceneController';
 import { authorizedSanityExperimentalTypesafeClient } from '../../src/sanity/sanityClient';
@@ -6,7 +5,7 @@ import { authorizedSanityExperimentalTypesafeClient } from '../../src/sanity/san
 export async function getStaticProps() {
   const projects = await authorizedSanityExperimentalTypesafeClient.getAll('project');
   const posts = await authorizedSanityExperimentalTypesafeClient.getAll('post');
-  const scene:SceneName = 'projects';
+  const scene:SceneName = 'blog';
 
   return {
     props: {
@@ -19,6 +18,6 @@ export async function getStaticProps() {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Home: NextPage<Props> = () => (null);
+const BlogIndex: NextPage<Props> = () => (null);
 
-export default Home;
+export default BlogIndex;

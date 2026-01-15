@@ -4,10 +4,12 @@ import { SceneName } from '../src/SceneController';
 
 export async function getStaticProps() {
   const projects = await authorizedSanityExperimentalTypesafeClient.getAll('project');
+  const posts = await authorizedSanityExperimentalTypesafeClient.getAll('post');
   const scene:SceneName = 'intro';
   return {
     props: {
       projects,
+      posts,
       scene,
     },
   };
