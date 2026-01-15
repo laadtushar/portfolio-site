@@ -159,7 +159,7 @@ export const SkillsWindow = ({
               onClick={() => {
                 setSlide('experience');
               }}
-              className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono bg-cyan-500 hover:bg-cyan-600 text-black font-bold border-[2px] border-black transition-all hover:scale-105 active:scale-95"
+              className="bg-lime text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform"
             >
               experience →
             </button>
@@ -169,7 +169,7 @@ export const SkillsWindow = ({
                 setScene('menu');
                 setSlide('intro');
               }}
-              className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-mono bg-gray-700 hover:bg-gray-600 text-white font-bold border-[2px] border-white transition-all hover:scale-105 active:scale-95"
+              className="bg-cyan text-black px-[1em] py-[0.5em] font-mono font-bold text-[0.8em] border-[2px] border-black hover:scale-105 active:scale-95 transition-transform"
             >
               ← back to menu
             </button>
