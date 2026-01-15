@@ -217,14 +217,13 @@ export const Slides = ({
         <div
           className={`
           absolute top-0 left-0 w-full h-full
-          grid
-          ${breakpoint ? ' grid-rows-[1fr_1em]' : ' grid-rows-[1fr_6em]'}
+          grid place-items-center
           pointer-events-none
-          overflow-hidden
+          p-[2em]
         `}
         >
           <SkillsWindow
-            className="w-full h-full max-h-[100vh] overflow-y-auto"
+            className="w-full max-w-[60em] h-[85vh] overflow-hidden"
             title="SKILLS.EXE"
             color="white"
             topColor="white"

@@ -51,8 +51,8 @@ const educationList: Education[] = [
 export const EducationWindow = ({
   ...terminalWindowProps
 }: Omit<TerminalWindowProps, 'children'>) => (
-  <TerminalWindow {...terminalWindowProps}>
-    <div className="p-[1em] text-[0.9em]">
+  <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
+    <div className="p-[1em] text-[0.9em] overflow-y-auto h-full">
       <div className="space-y-[2em]">
         {educationList.map((edu, index) => (
           <div
