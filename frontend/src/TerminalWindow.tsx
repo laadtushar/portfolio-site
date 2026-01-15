@@ -36,14 +36,14 @@ export const TerminalWindow = ({
 
   return (
     <div
-      className={`relative select-none touch-none text-black ${className}`}
+      className={`relative select-none touch-none text-black h-full ${className}`}
     >
       <motion.div
         // drag={draggable}
         drag
         dragMomentum={false}
         dragListener={false}
-        className="relative w-full h-full text-black"
+        className="relative w-full h-full max-h-full text-black"
         dragControls={dragControls}
         onPointerDown={draggableByTitleBarOnly ? () => {} : startDrag}
       >
@@ -55,7 +55,7 @@ export const TerminalWindow = ({
             transition-transform ease-[steps(8)]
             duration-500
             font-mono
-            min-h-full
+            h-full max-h-full
             pointer-events-auto
 
             border-[2px] border-black overflow-hidden relative

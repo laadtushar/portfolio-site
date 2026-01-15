@@ -58,8 +58,8 @@ export const EducationWindow = ({
   setSlide?: (_slide: any) => void;
   setScene?: (_scene: any) => void;
 } & Omit<TerminalWindowProps, 'children'>) => (
-  <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
-    <div className="p-[0.75em] sm:p-[1em] text-[0.8em] sm:text-[0.85em] md:text-[0.9em] overflow-y-auto h-full" style={{ maxHeight: 'calc(90vh - 3em)' }}>
+  <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-y-auto">
+    <div className="p-[0.75em] sm:p-[1em] text-[0.8em] sm:text-[0.85em] md:text-[0.9em]">
       {/* Navigation buttons at top */}
       {setSlide && setSceneProp && (
         <div className="mb-[0.75em] sm:mb-[1em] flex gap-[0.4em] sm:gap-[0.5em] justify-center flex-wrap">

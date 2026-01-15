@@ -23,8 +23,8 @@ export const TextWindow = ({
     return startDelay + charCountSoFar * TIME_PER_CHAR + pauseBetween * (i + 1);
   })];
   return (
-    <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
-      <div className="overflow-y-auto h-full" style={{ maxHeight: 'calc(85vh - 3em)' }}>
+    <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-y-auto">
+      <div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         {icon && <img src={icon} alt="fake computer icon" className="w-[20%] h-auto m-auto mb-[1em] pointer-events-none" />}
         {texts.map((text, i, array) => (

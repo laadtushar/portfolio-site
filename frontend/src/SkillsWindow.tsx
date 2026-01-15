@@ -149,9 +149,9 @@ export const SkillsWindow = ({
         {...terminalWindowProps}
         draggableByTitleBarOnly
         noCloseButton
-        wrapperClassName="overflow-hidden"
+        wrapperClassName="overflow-y-auto"
       >
-        <div className="overflow-y-auto h-full w-full p-3 sm:p-4 md:p-6" style={{ maxHeight: 'calc(90vh - 3em)' }}>
+        <div className="w-full p-3 sm:p-4 md:p-6">
           {/* Navigation at top */}
           <div className="mb-4 flex flex-wrap gap-2 sm:gap-3 justify-center">
             <button
