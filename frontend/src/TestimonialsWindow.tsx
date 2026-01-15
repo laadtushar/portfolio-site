@@ -62,8 +62,12 @@ export const TestimonialsWindow = ({
   return (
     <TerminalWindow
       {...terminalWindowProps}
+      wrapperClassName="overflow-hidden"
     >
-      <div className={`grid p-[1em] ${breakpointVal ? 'grid-cols-[8em_1fr]' : ''} overflow-y-auto`}>
+      <div
+        className={`grid p-[1em] ${breakpointVal ? 'grid-cols-[8em_1fr]' : ''} overflow-y-auto h-full`}
+        style={{ maxHeight: 'calc(90vh - 3em)' }}
+      >
         {/* Navigation buttons at top */}
         {setSlide && setSceneProp && (
           <div className={`mb-[1em] flex gap-[0.5em] justify-center ${breakpointVal ? 'col-span-2' : ''}`}>
