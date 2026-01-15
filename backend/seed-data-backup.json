@@ -1,0 +1,352 @@
+{
+  "authors": [
+    {
+      "_type": "author",
+      "name": "Tushar Laad",
+      "slug": {
+        "_type": "slug",
+        "current": "tushar-laad"
+      },
+      "bio": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Data Engineer & Software Architect passionate about building innovative solutions and data systems."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "_type": "project",
+      "title": "NLP and LLM Driven Identification of Job Intent, Technologies, and Teams",
+      "shortTitle": "Job Matching AI",
+      "slug": {
+        "_type": "slug",
+        "current": "nlp-llm-job-matching"
+      },
+      "subTitle": "Research project on semantic job matching",
+      "client": "Newcastle University",
+      "links": [],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "The process of matching job seekers with suitable job opportunities is a critical task in the recruitment industry. However, the complexity and variability of job descriptions often pose challenges in accurately identifying the job intent, required technologies, and team structures."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "This research project aims to develop an NLP and LLM based platform that can analyze job descriptions and extract relevant information, thereby enhancing the job matching process. By leveraging Natural Language Processing (NLP) techniques and Large Language Models (LLMs), the proposed platform enables a more semantic understanding of job descriptions and candidate profiles."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h3",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Key Objectives"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "• Scraping and preprocessing job descriptions\n• Generating a comprehensive dictionary of job intents, technologies, and teams\n• Labeling job descriptions using the generated dictionary and NLP techniques\n• Evaluating and comparing the performance of various NLP and LLM models for identifying job intent\n• Developing an ETL pipeline for data processing\n• Implementing a prototype API for ingesting job descriptions and retrieving job opportunities based on intent, technology, and team"
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#00d4ff"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "End to End Encrypted Chat App on React.js + Firebase",
+      "shortTitle": "Decipher Chat",
+      "slug": {
+        "_type": "slug",
+        "current": "encrypted-chat-app"
+      },
+      "subTitle": "Secure messaging with end-to-end encryption",
+      "client": "Newcastle University",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Live Demo",
+          "url": "https://decipher.website"
+        },
+        {
+          "_type": "link",
+          "text": "GitHub",
+          "url": "https://github.com/laadtushar/end-to-end-encrypted-chat-app"
+        },
+        {
+          "_type": "link",
+          "text": "Demo Video",
+          "url": "https://www.youtube.com/watch?v=gqsp-OPTtIk"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A secure chat application featuring end-to-end encryption built with React.js and Firebase, demonstrating advanced security concepts including asymmetric encryption for scalable web applications."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h3",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Technical Implementation"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Implemented end-to-end encryption with public/private key architecture. Public keys are stored on servers while private keys remain on local devices, providing an additional layer of security requiring users to authenticate with their private keys upon logging in from any device."
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#8b5cf6"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "XpenseLab",
+      "shortTitle": "XpenseLab",
+      "slug": {
+        "_type": "slug",
+        "current": "xpenselab"
+      },
+      "subTitle": "Personal budgeting tool",
+      "client": "Personal Project",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Visit Site",
+          "url": "https://XpenseLab.com"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "A personal budgeting tool built with Firebase and Google Data Studio for expense tracking and financial visualization. Features real-time expense monitoring with Cloud Firestore backend."
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#f59e0b"
+      }
+    },
+    {
+      "_type": "project",
+      "title": "Vail Perfumes E-commerce",
+      "shortTitle": "Vail Perfumes",
+      "slug": {
+        "_type": "slug",
+        "current": "vail-perfumes"
+      },
+      "subTitle": "E-commerce store for perfumes",
+      "client": "Vail Perfumes",
+      "links": [
+        {
+          "_type": "link",
+          "text": "Visit Store",
+          "url": "https://vailperfumes.com"
+        }
+      ],
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Developed an e-commerce website with full WooCommerce functionality including product catalog, inventory management, payment gateway integration, and order management system."
+            }
+          ]
+        }
+      ],
+      "color1": {
+        "_type": "color",
+        "hex": "#ec4899"
+      }
+    }
+  ],
+  "posts": [
+    {
+      "_type": "post",
+      "title": "Choosing Innovation Over Safety: What My Journey With Appsatile Taught Me About Risk, Research, and the Future of Indian Tech",
+      "slug": {
+        "_type": "slug",
+        "current": "choosing-innovation-over-safety"
+      },
+      "publishedAt": "2025-11-14T08:25:00.000Z",
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Growing up in India, I was raised with a very familiar message: play it safe. Study hard, get more degrees, secure a stable job in a reputable company, and build a predictable life. In many families—including mine—success was defined by safety, not by experimentation. The idea of taking risks, betting on uncertain ideas, or joining a young startup was often seen as unnecessary \"adventure\"."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "But from very early on, I felt pulled in a different direction. I've always been fascinated by innovation, by solving problems no one has solved before, by building something that doesn't exist yet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "post",
+      "title": "The \"Corporate Robot\" Paradox: Why Loving Your Job Is Both a Privilege and a Risk",
+      "slug": {
+        "_type": "slug",
+        "current": "corporate-robot-paradox"
+      },
+      "publishedAt": "2026-01-15T07:31:00.000Z",
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Scroll through LinkedIn for five minutes, and you will inevitably see it: the advice to \"escape the rat race,\" stop being a \"corporate robot,\" and prioritize \"living\" over working. It's a popular sentiment, but it always makes me pause."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "I am in a fortunate, perhaps statistical minority: I am genuinely passionate about my work. While money is obviously important for survival, it is secondary to the intrinsic fulfillment I get from what I do every day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "post",
+      "title": "Did You Try Reading the Documentation?",
+      "slug": {
+        "_type": "slug",
+        "current": "reading-documentation"
+      },
+      "publishedAt": "2023-03-04T14:02:00.000Z",
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "This is a question I've lately posed to many folks who have come to me with coding problems. When starting to code something new, it can be tempting to dive right in and start writing code without taking the time to read the documentation."
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "h3",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Key Lessons"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Reading documentation saves time, reduces errors, provides better understanding for optimization, and makes collaboration easier. By taking the time to read the documentation, you can ensure that you are writing high-quality code that is efficient, effective, and easy to maintain."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "post",
+      "title": "POV: You Work 16 Hours a Day While All Your Friends Enjoy Their 20s",
+      "slug": {
+        "_type": "slug",
+        "current": "working-16-hours"
+      },
+      "publishedAt": "2022-09-25T19:15:00.000Z",
+      "body": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "I won't lie; I am incredibly jealous of all my classmates who are enjoying their lives, partying, or taking trips & vacations. Those Instagram stories that pop up every day are frustrating. What did I do not to deserve that fun? Am I losing my prime years to work?"
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "My mother is the earning member of the family - I have seen her take up enormous responsibilities that any Indian woman needs to take up while also earning for the whole family and getting food on the table. I am probably just trying to be like her, and maybe one day, I will be able to give her the life of comfort that she has always ensured for me."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
