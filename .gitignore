@@ -4,3 +4,6 @@ dist
 asset-src
 junk
 sanity-backups
+.env
+.env.local
+frontend\.env
