@@ -162,6 +162,7 @@ export const Slides = ({
             transition-transform duration-[1s]
             ${slide === 'testimonials' ? '' : 'translate-x-[43%] translate-y-[-80%]'}
             ${breakpoint ? 'self-baseline' : 'col-[1/-1] row-[1/-1] self-end'}
+            max-h-[85vh] overflow-y-auto
           `}
           delay={1000}
           title="KIND_WORDS_FROM_OTHERS.exe"
@@ -219,10 +220,11 @@ export const Slides = ({
           grid
           ${breakpoint ? ' grid-rows-[1fr_1em]' : ' grid-rows-[1fr_6em]'}
           pointer-events-none
+          overflow-hidden
         `}
         >
           <SkillsWindow
-            className="w-full h-full"
+            className="w-full h-full max-h-[100vh] overflow-y-auto"
             title="SKILLS.EXE"
             color="white"
             topColor="white"
@@ -272,11 +274,12 @@ export const Slides = ({
           grid place-items-center
           pointer-events-none
           p-[2em]
+          overflow-hidden
         `}
         >
           <EducationWindow
             className={`
-              w-full max-w-[50em] max-h-[90%] overflow-y-auto
+              w-full max-w-[50em] max-h-[85vh] overflow-y-auto
               ${breakpoint ? '' : 'max-w-[90%]'}
             `}
             title="EDUCATION.log"
@@ -306,11 +309,12 @@ export const Slides = ({
           grid place-items-center
           pointer-events-none
           p-[2em]
+          overflow-hidden
         `}
         >
           <VolunteerWindow
             className={`
-              w-full max-w-[50em] max-h-[90%] overflow-y-auto
+              w-full max-w-[50em] max-h-[85vh] overflow-y-auto
               ${breakpoint ? '' : 'max-w-[90%]'}
             `}
             title="ADDITIONAL_EXPERIENCE.log"

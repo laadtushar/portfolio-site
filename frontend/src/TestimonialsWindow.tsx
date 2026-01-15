@@ -57,7 +57,7 @@ export const TestimonialsWindow = ({
     <TerminalWindow
       {...terminalWindowProps}
     >
-      <div className={`grid p-[1em] ${breakpoint ? 'grid-cols-[8em_1fr]' : ''}`}>
+      <div className={`grid p-[1em] ${breakpoint ? 'grid-cols-[8em_1fr]' : ''} overflow-y-auto`}>
         {/* <div className="flex items-center justify-center col-span-2 mt-[-1em] gap-[0.5em]">
           <div className="relative inline-block">
             <span

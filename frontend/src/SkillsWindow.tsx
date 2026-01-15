@@ -150,7 +150,7 @@ export const SkillsWindow = ({
         draggableByTitleBarOnly
         noCloseButton
       >
-        <div className="overflow-y-auto h-full w-full p-4 md:p-6">
+        <div className="overflow-y-auto h-full max-h-[calc(85vh-4em)] w-full p-4 md:p-6">
           <div className="font-mono text-white mb-4">
             <div className="text-2xl md:text-3xl font-bold mb-2 text-cyan-400">
               {'>'} SKILLS.EXE
