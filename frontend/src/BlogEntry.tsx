@@ -11,7 +11,6 @@ import { RoundedBoxGeometry } from 'three-stdlib';
 import { MeshDistortMaterial } from '@react-three/drei';
 import { event } from 'nextjs-google-analytics';
 import { Post } from '../generatedSanitySchemaTypes';
-import { ThreeButton } from './ThreeButton';
 import colors from './colors';
 import { BlogHtmlModal } from './BlogHtmlModal';
 import { useBreakpoints } from './useBreakpoints';
@@ -126,11 +125,11 @@ export const BlogEntry = ({
   return (
     <animated.group position={openSpring.position as any}>
       <animated.group position={animatedCubeFloatingOffset as any}>
-        <ThreeButton
+        <group
           scale={[0.5, 0.5, 0.5]}
-          onPointerEnter={somePostIsOpen || hasNoMouse ? () => {} : () => setHovering(true)}
-          onPointerLeave={somePostIsOpen || hasNoMouse ? () => {} : () => setHovering(false)}
-          onClick={somePostIsOpen ? () => {} : () => {
+          onPointerEnter={somePostIsOpen || hasNoMouse ? undefined : () => setHovering(true)}
+          onPointerLeave={somePostIsOpen || hasNoMouse ? undefined : () => setHovering(false)}
+          onClick={somePostIsOpen ? undefined : () => {
             setOpen(true);
             event('click_blog', { name: post?.title ?? 'unset' });
           }}
@@ -143,7 +142,7 @@ export const BlogEntry = ({
               color={colorGetter}
             />
           </mesh>
-        </ThreeButton>
+        </group>
         {open && <BlogHtmlModal post={post} position={[0, -0.9, 0]} setOpen={setOpen} />}
         {(!somePostIsOpen || open) && (
           <BlogTitlePreview post={post} hovering={hovering} open={open} />
