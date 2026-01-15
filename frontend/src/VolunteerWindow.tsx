@@ -98,7 +98,7 @@ export const VolunteerWindow = ({
   setScene?: (_scene: any) => void;
 } & Omit<TerminalWindowProps, 'children'>) => (
   <TerminalWindow {...terminalWindowProps} wrapperClassName="overflow-hidden">
-    <div className="p-[1em] text-[0.9em] overflow-y-auto h-full">
+    <div className="p-[1em] text-[0.9em] overflow-y-auto h-full" style={{ maxHeight: 'calc(90vh - 3em)' }}>
       {/* Navigation button at top */}
       {setSlide && setSceneProp && (
         <div className="mb-[1em] flex gap-[0.5em] justify-center">
