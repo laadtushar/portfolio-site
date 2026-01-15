@@ -18,6 +18,23 @@ async function importData() {
     // Read seed data
     const seedData = JSON.parse(fs.readFileSync(path.join(__dirname, 'seed-data.json'), 'utf8'));
     
+    let authorId = null;
+
+    // Import authors first (needed for blog posts)
+    if (seedData.authors) {
+      console.log(`👤 Importing ${seedData.authors.length} authors...\n`);
+      for (const author of seedData.authors) {
+        try {
+          console.log(`   Importing author: ${author.name}`);
+          const result = await client.create(author);
+          authorId = result._id;
+          console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);
+        } catch (error) {
+          console.error(`   ❌ Failed to import ${author.name}:`, error.message, '\n');
+        }
+      }
+    }
+    
     // Import projects
     if (seedData.projects) {
       console.log(`📦 Importing ${seedData.projects.length} projects...\n`);
@@ -37,6 +54,13 @@ async function importData() {
       console.log(`📝 Importing ${seedData.posts.length} blog posts...\n`);
       for (const post of seedData.posts) {
         try {
+          // Add author reference if we created one
+          if (authorId && !post.author) {
+            post.author = {
+              _type: 'reference',
+              _ref: authorId
+            };
+          }
           console.log(`   Importing post: ${post.title}`);
           const result = await client.create(post);
           console.log(`   ✅ Successfully imported with ID: ${result._id}\n`);

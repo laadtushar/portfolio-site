@@ -1,4 +1,26 @@
 {
+  "authors": [
+    {
+      "_type": "author",
+      "name": "Tushar Laad",
+      "slug": {
+        "_type": "slug",
+        "current": "tushar-laad"
+      },
+      "bio": [
+        {
+          "_type": "block",
+          "style": "normal",
+          "children": [
+            {
+              "_type": "span",
+              "text": "Data Engineer & Software Architect passionate about building innovative solutions and data systems."
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "projects": [
     {
       "_type": "project",

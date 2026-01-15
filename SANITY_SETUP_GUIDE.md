@@ -61,13 +61,24 @@ cd backend
 npm run seed
 ```
 
-This will automatically import all 6 projects:
+This will automatically import:
+
+**Author Profile:**
+- Tushar Laad (your author profile)
+
+**6 Projects:**
 - NLP and LLM Job Matching Platform
 - End-to-End Encrypted Chat Application
 - Real-Time Collaborative Whiteboard
 - XpenseLab
 - Parivartan NGO Website
 - Vail Perfumes E-commerce
+
+**4 Blog Posts:**
+- "Choosing Innovation Over Safety" (Nov 2025)
+- "The Corporate Robot Paradox" (Jan 2026)
+- "Did You Try Reading the Documentation?" (Mar 2023)
+- "POV: You Work 16 Hours a Day" (Sep 2022)
 
 ### Step 6: Deploy to Vercel
 
